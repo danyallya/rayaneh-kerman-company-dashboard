@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load prk_templatetags %}
+{% block content %}
+    <div class="ui grid page full height">
+        <div class="thirteen wide column">
+
+            <a class="ui green label tahoma" onclick="$('.modal').modal('show');">
+                <i class="plus icon"></i>
+                کار جدید
+            </a>
+
+            <div class="ui image label tahoma">
+                <img src="/static/images/fav.ico">
+                محمدصالح یاشیخ اکبری
+            </div>
+
+            <div class="ui teal label tahoma">
+                <i class="mail icon"></i>
+                10 کار به من سپرده شده
+            </div>
+
+            {% for work in works %}
+                <div class="ui blue segment right aligned">
+                    Blue
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <div class="three wide column">
+
+
+            <div class="ui vertical menu">
+                <a class="active teal item tahoma">
+                    <div class="ui teal label">1</div>
+                    همه کارها
+                </a>
+                <a class="item tahoma">
+                    <div class="ui label">51</div>
+                    کارهای من
+                </a>
+                <a class="item tahoma">
+                    <div class="ui label">1</div>
+                    کارهایی که من واگذار کردم
+                </a>
+
+                <div class="item">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="جستجو...">
+                        <i class="search icon"></i>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="ui modal">
+        <i class="close icon"></i>
+
+        <div class="header right aligned">
+            ایجاد کار جدید
+        </div>
+        <div class="content">
+            <table>
+                {{ form.as_table }}
+            </table>
+        </div>
+        <div class="actions">
+            {#    <div class="ui black button">#}
+            {#      Nope#}
+            {#    </div>#}
+            <div class="ui positive right labeled icon button">
+                ثبت
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+{% endblock %}

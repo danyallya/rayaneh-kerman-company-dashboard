@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load prk_templatetags %}
+{% block content %}
+    <div class="ui four steps segment tahoma">
+        <div class="ui step">
+            سبد خرید
+        </div>
+        <div class="ui active step">
+            ورود
+        </div>
+        <div class="ui disabled step">
+            اطلاعات ارسال و پرداخت
+        </div>
+        <div class="ui disabled step">
+            تایید سفارش
+        </div>
+    </div>
+    <div class="ui form segment">
+        <div class="column">
+            اگر در دیبا عضو هستید برای انجام خرید خود وارد شوید
+            <a class="decrease item right" href="{% url login %}?next={{ request.get_full_path }}"> <i
+                    class="icon circular green sign in"></i>
+            <span class="tahoma">
+ورود
+        </span>
+            </a>
+        </div>
+        <div class="ui horizontal divider"></div>
+        <div class="column">
+            به تازگی با دیبا آشنا شده اید؟
+            <br/>
+            برای انجام خرید خود ثبت نام کنید
+            <a class="increase item right" href="{% url signup %}?next={{ request.get_full_path }}"> <i class="icon circular teal sign up"></i>
+        <span class="tahoma">
+ثبت نام در دیبا
+        </span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

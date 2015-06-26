@@ -1,0 +1,22 @@
+﻿<?php
+	header('Content-Type: application/json');
+	$con=mysqli_connect("localhost","parkgrou_adv","13712533485","parkgrou_adv");
+
+	// Check connection
+	if (mysqli_connect_errno()) {
+	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	$app_name = $_GET['app_name'];
+	$version = $_GET['version'];
+
+	$result = mysqli_query($con,"SELECT * FROM adv_links WHERE app_name='$app_name' or app_name=''");
+
+	$arr = array ();
+	while($row = mysqli_fetch_array($result)) {
+	    array_push($arr, array ('id'=>$row['id'],'link'=>$row['link'], 'img_url'=>$row['img_url']));
+	}
+	mysqli_close($con);
+
+
+    echo json_encode($arr);
+?>

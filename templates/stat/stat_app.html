@@ -1,0 +1,38 @@
+<?php
+
+date_default_timezone_set('Asia/Tehran');
+
+$con=mysqli_connect("localhost","parkgrou_stats","13712533485","parkgrou_stats");
+
+// Check connection
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$app_name = $_GET['app_name'];
+$version = $_GET['version'];
+$now = date("Y-m-d H:i:s");
+
+if(empty($app_name)){
+
+$result = mysqli_query($con,"SELECT * FROM stats Where software_name = 'nasim'");
+
+$count = 0;
+while($row = mysqli_fetch_array($result)) {
+  $count = $row['count_download'];
+}
+$count +=1;
+
+mysqli_query($con,"UPDATE stats SET count_download=$count WHERE software_name='nasim'");
+
+echo "$count";
+
+
+}else{
+
+mysqli_query($con, "INSERT INTO `parkgrou_stats`.`app_stats` (`date`, `version`, `app_name`) VALUES ('$now', '$version', '$app_name')");
+
+}
+
+mysqli_close($con);
+?>

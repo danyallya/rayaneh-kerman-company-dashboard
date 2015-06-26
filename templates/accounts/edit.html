@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="three column stackable ui grid tahoma">
+        <div class="column">
+
+        </div>
+        <div class="column">
+            <form class="ui form piled segment" method="post" action="">
+                {% csrf_token %}
+                {#                        <div class="ui error message">#}
+                {#                            <div class="header">Action Forbidden</div>#}
+                {#                            <p>You can only sign up for an account once with a given e-mail address.</p>#}
+                {#                        </div>#}
+{#                <div class="two fields">#}
+{#                    <div class="field">#}
+{#                        <label>{{ form.first_name.label }}</label>#}
+{#                        {{ form.first_name }}#}
+{#                    </div>#}
+{#                    <div class="field">#}
+{#                        <label>{{ form.last_name.label }}</label>#}
+{#                        {{ form.last_name }}#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="field">#}
+{#                    <label>{{ form.gender.label }}</label>#}
+{##}
+{#                    <div class="ui fluid selection dropdown">#}
+{#                        <div class="text">انتخاب کنید</div>#}
+{#                        <i class="dropdown icon"></i>#}
+{#                        <input type="hidden" name="gender" value="2">#}
+{##}
+{#                        <div class="menu">#}
+{#                            <div class="item" data-value="1">مرد</div>#}
+{#                            <div class="item" data-value="2">زن</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#                <div class="field">#}
+{#                    <label>{{ form.username.label }}</label>#}
+{#                    {{ form.username }}#}
+{#                </div>#}
+                <table>
+                {{ form.as_table }}</table>
+{#                <div class="inline field">#}
+{#                    <div class="ui checkbox">#}
+{#                        <input type="checkbox">#}
+{#                        <label>I agree to the Terms and Conditions</label>#}
+{#                    </div>#}
+{#                </div>#}
+                <div class="ui blue submit button">ثبت تغییرات</div>
+            </form>
+        </div>
+        <div class="column">
+
+        </div>
+    </div>{% endblock %}

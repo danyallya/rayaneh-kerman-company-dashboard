@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load prk_templatetags %}
+{% block content %}
+    <div class="ui four steps segment tahoma">
+        <div class="ui step">
+            سبد خرید
+        </div>
+        <div class="ui step">
+            ورود
+        </div>
+        <div class="ui active step">
+            اطلاعات ارسال و پرداخت
+        </div>
+        <div class="ui disabled step">
+            تایید سفارش
+        </div>
+    </div>
+    <form class="ui form segment tahoma" method="post" action="">
+        {% csrf_token %}
+        <div class="wide column fourteen">
+            <div class="ui five column left aligned grid">
+                <div class="column ui square button large aligned center">مشخصات و آدرس</div>
+
+                <div class="column wide four">
+                    <div class="column">
+                        نام و نام خانوادگی
+                        : {{ profile.user.first_name }} {{ profile.user.last_name }}
+                    </div>
+                    <div class="column">
+                        شماره تلفن
+                        : {{ profile.phone_number|default:"---" }}
+                    </div>
+                    <div class="column">
+                        شماره موبایل
+                        : {{ profile.mobile_number|default:"---" }}
+                    </div>
+                    <div class="column">
+                        شهر
+                        : {{ profile.city|default:"---" }}
+                    </div>
+                    <div class="column">
+                        کدپستی
+                        : {{ profile.post_code|default:"---" }}
+                    </div>
+                    <div class="column">
+                        آدرس
+                        : {{ profile.address|default:"---" }}
+                    </div>
+                </div>
+            </div>
+            <div class="ui horizontal icon divider">
+                <i class="circular cart icon"></i>
+            </div>
+            <div class="ui five column left aligned grid">
+                <div class="column ui square button large aligned center">نحوه ارسال</div>
+                <div class="column">
+                    {{ form.send_type }}
+                    {{ form.send_type.errors }}
+                </div>
+            </div>
+            <div class="ui horizontal icon divider">
+                <i class="circular cart icon"></i>
+            </div>
+            <div class="ui five column left aligned grid">
+                <div class="column ui square button large aligned center">نحوه پرداخت</div>
+
+                <div class="column">
+                    {{ form.pay_type }}
+                    {{ form.pay_type.errors }}
+                </div>
+            </div>
+            <div class="ui horizontal icon divider">
+                <i class="circular cart icon"></i>
+            </div>
+            <div class="ui five column left aligned grid">
+                <div class="column ui square button large aligned center">نحوه دریافت فاکتور</div>
+
+                <div class="column">
+                    {{ form.is_gift }}
+                    {{ form.is_gift.errors }}
+                </div>
+            </div>
+            <div class="ui horizontal icon divider">
+                <i class="circular cart icon"></i>
+            </div>
+            <div class="ui five column left aligned grid">
+                <div class="column ui square button large aligned center">مبلغ قابل پرداخت</div>
+
+                <div class="column ui large">
+                    {{ bill.total_pay }}
+                </div>
+            </div>
+            <div class="ui horizontal icon divider">
+                <i class="circular cart icon"></i>
+            </div>
+            <div class="ui five column left aligned grid">
+
+                <a class="ui blue submit button" href="{% url view_bill %}">
+                    ویرایش سبد خرید
+                </a>
+
+                <div class="ui blue submit button">
+                    مرحله بعد
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

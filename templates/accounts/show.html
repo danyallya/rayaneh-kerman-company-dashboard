@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="ui page grid segment tahoma">
+        <div class="ui grid">
+            <div class="four column row">
+                <div class="column">
+                    <div class="ui segment">
+                        نام و نام خانوادگی
+                        : {{ profile.user.first_name }} {{ profile.user.last_name }}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        شهر
+                        : {{ profile.city|default:"---" }}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        شماره تلفن
+                        : {{ profile.phone_number|default:"---" }}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        شماره موبایل
+                        : {{ profile.mobile_number|default:"---" }}
+                    </div>
+                </div>
+            </div>
+            <div class="two column row">
+                <div class="column">
+                    <div class="ui segment">
+                        کدپستی
+                        : {{ profile.post_code|default:"---" }}
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui segment">
+                        آدرس
+                        : {{ profile.address|default:"---" }}
+                    </div>
+                </div>
+            </div>
+            <div class="column row">
+                <div class="column">
+                    <a class="ui button square blue" href="{% url edit_profile %}">
+                        ویرایش مشخصات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

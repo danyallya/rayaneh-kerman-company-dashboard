@@ -1,0 +1,11 @@
+
+.idea
+*.pyc
+*/local.py
+*/local_settings.py
+*.db
+/media/*
+
+/static_files/*
+src/prk/prk_set.py
+src/prk/prk_se.py

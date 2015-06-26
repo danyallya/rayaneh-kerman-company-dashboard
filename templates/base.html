@@ -1,0 +1,89 @@
+{% load prk_templatetags %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>پردازش رایانه کرمان PRK</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content=""/>
+    <meta name="keywords"
+          content=""/>
+    {#        <link rel="shortcut icon" href="/static/images/sharif-logo.png" type="image/x-icon">#}
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/semantic/semantic.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    {% block extra_js %}
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="/static/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/static/css/base.css"/>
+    <link rel="stylesheet" href="/static/css/custom.css"/>
+    {% block extra_css %}
+    {% endblock %}
+</head>
+<body dir="rtl" id="home" class="page" style="padding-top: 22px;">
+
+<div class="ui large secondary fixed white inverted menu fluid four item" id="top_nav" style="background-color: rgba(38, 77, 89, 0.84);">
+
+    {% if user.is_authenticated %}
+
+        <a class="item left" href="{% url 'account.views.auth.logout' %}"> <i
+                class="icon inverted circular green sign out"></i>
+            <span class="tahoma">
+خروج
+        </span>
+        </a>
+
+        <a class="item left" href="{% url 'account.views.profile.show_profile' %}"> <i
+                class="icon inverted circular teal user"></i>
+        <span class="tahoma">
+حساب کاربری من
+        </span>
+        </a>
+    {% else %}
+
+        <a class="item left" href="{% url 'account.views.auth.login' %}?next={{ request.get_full_path }}"> <i
+                class="icon inverted circular green sign in"></i>
+            <span class="tahoma">
+ورود
+        </span>
+        </a>
+
+    {% endif %}
+
+    <a class="item right" href="/"> <i class="icon inverted circular teal home"></i>
+        <span class="tahoma">
+                    خانه
+        </span>
+    </a>
+
+</div>
+
+{% block content %}
+{% endblock %}
+<div class="stackable ui inverted purple page grid segment tahoma fluid">
+    <div class="wide column">
+        <div class="ui column stackable grid">
+            <div class="column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        کلیه حقوق این وب سایت متعلق به PRK می باشد.
+                    </div>
+
+                    <div class="item">
+                        <a href="http://parkgroup.ir">
+                            طراحی و اجرا توسط پردازش رایانه کرمان(PRK)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
