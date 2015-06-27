@@ -2,8 +2,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from autoslug import AutoSlugField
-from account.models import Account
 
+from account.models import Account
 from utils.models import BaseModel
 
 
@@ -123,7 +123,7 @@ class ProjectVersion(models.Model):
 class Project(models.Model):
     title = models.CharField(_(u'Title'), max_length=255, db_index=True)
     _prev_title = models.CharField(max_length=128, editable=False, null=True, blank=True)
-    slug = AutoSlugField(populate_from='title', unique=True, blank=True)
+    # slug = AutoSlugField(populate_from='title', unique=True, blank=True)
     summary = models.TextField(_(u'Summary'), null=True, blank=True)
     responsible = models.ForeignKey(Account, verbose_name=_(u'Responsible'), null=True, blank=True)
     entry_date = models.DateTimeField(_(u'Create Date'), auto_now_add=True)
@@ -195,8 +195,8 @@ class TimeSpend(BaseModel):
     # issue = models.ForeignKey(Issue, null=True, blank=True)
     account = models.ForeignKey(Account, verbose_name=u"واگذارشده به")
     project = models.ForeignKey(Project, null=True, blank=True)
-    # due_date = models.DateTimeField(u"زمان سررسید", null=True, blank=True)
-    desc = models.TextField(verbose_name=u"توضیح", null=True, blank=True)
+    due_date = models.DateField(u"زمان", null=True)
+    desc = models.TextField(verbose_name=u"توضیح", null=True)
     # progress = models.IntegerField(verbose_name=u"درصد انجام", default=0)
     time_spend = models.FloatField(u'زمان گذاشته شده', null=True)
 

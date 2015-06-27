@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 from django import template
 
+from utils.calverter import gregorian_to_jalali
+
+
 __author__ = 'M.Y'
 
 register = template.Library()
@@ -14,3 +17,15 @@ def cls_name(obj):
 @register.filter
 def get_range(value):
     return range(value)
+
+
+@register.filter
+def to_jalali(date):
+    return gregorian_to_jalali(date)
+
+
+@register.filter
+def st_date(date):
+    if not date:
+        return ''
+    return '-'.join([str(x) for x in [date.year, date.month, date.day]])

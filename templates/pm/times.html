@@ -3,150 +3,206 @@
 {% block content %}
     <article id="main-content" class="ui segment">
 
-        <div class="ui grid">
+    <div class="ui grid">
 
-            <div class="five wide column">
+        <div class="five wide column">
 
-                <div class="ui center aligned segment">
-                    <form class="ui form" id="form" method="post" action="">
-                        {% csrf_token %}
-                        <h4 class="ui dividing header">
-                            ثبت زمان
-                        </h4>
-
-                        {{ form.errors }}
-
-                        <div class="field">
-                            <label>
-                                پروژه
-                            </label>
-                            {{ form.project }}
-                        </div>
-                        <div class="required field">
-                            <label>
-                                زمان گذاشته شده
-                            </label>
-                            {{ form.time_spend }}
-                        </div>
-                        <div class="required field">
-                            <label>
-                                شرح کار
-                            </label>
-                            {{ form.desc }}
-                        </div>
-
-                        <button class="ui compact labeled icon button" type="submit">
-                            <i class="ticket icon"></i>
-                            ثبت
-                        </button>
-
-
-                        <script>
-                            $('.ui.form')
-                                    .form({
-                                        name: {
-                                            identifier: 'name',
-                                            rules: [
-                                                {
-                                                    type: 'empty',
-                                                    prompt: 'Please enter a username'
-                                                }
-                                            ]
-                                        },
-                                        username: {
-                                            identifier: 'username',
-                                            rules: [
-                                                {
-                                                    type: 'empty',
-                                                    prompt: 'Please enter a username'
-                                                }
-                                            ]
-                                        },
-                                        password: {
-                                            identifier: 'password',
-                                            rules: [
-                                            ]
-                                        }, repass: {
-                                            identifier: 'repassword',
-                                            rules: [
-                                                {
-                                                    type: 'match[password]',
-                                                    prompt: 'passwords must match'
-                                                }
-                                            ]
-                                        }, email: {
-                                            identifier: 'email',
-                                            rules: [
-                                                {
-                                                    type: 'empty',
-                                                    prompt: 'Please enter a username'
-                                                },
-                                                {
-                                                    type: 'email',
-                                                    prompt: 'It is an incorrect Email'
-                                                }
-                                            ]
-                                        }, birthday: {
-                                            identifier: 'birthdate',
-                                            rules: [
-                                                {
-                                                    type: 'empty',
-                                                    prompt: 'Please enter a username'
-                                                }
-                                            ]
-                                        }
-                                    }, {
-                                        inline: true,
-                                        on: 'blur'
-                                    });
-
-                        </script>
-                    </form>
-                </div>
-            </div>
-
-
-            <div class="eleven wide column">
-                <div class="ui segment">
-                    <h4 class="ui dividing header right aligned" title="سلام">
-                        زمان ها:
+            <div class="ui center aligned segment">
+                <form class="ui form" id="time-form" method="post" action="">
+                    {% csrf_token %}
+                    <h4 class="ui dividing header">
+                        ثبت زمان
                     </h4>
 
-                    {% for timespend in times %}
-                        <div class="ui segment right aligned">
+                    {{ form.errors }}
 
-                            <div class="ui items">
-                                <div class="item">
-                                    <div class="content padded">
+                    <div class="field">
+                        <label>
+                            پروژه
+                            <i id="add-project" class="green plus icon link icon"></i>
+
+                        </label>
+                        {{ form.project }}
+                    </div>
+                    <div class="required field">
+                        <label>
+                            زمان گذاشته شده
+                        </label>
+                        {{ form.time_spend }}
+                    </div>
+                    <div class="required field">
+                        <label>
+                            تاریخ
+                        </label>
+                        {{ form.due_date }}
+                    </div>
+                    <div class="required field">
+                        <label>
+                            شرح کار
+                        </label>
+                        {{ form.desc }}
+                    </div>
+
+                    <button class="ui compact labeled icon button" type="submit">
+                        <i class="ticket icon"></i>
+                        ثبت
+                    </button>
 
 
-                                        <div class="description">{{ timespend.desc|safe }}</div>
+                    <script>
+                        $('#add-project').click(function () {
+                            $('.small.test.modal').modal('setting', 'transition', "vertical flip")
+                                    .modal('show')
+                            ;
+                        });
 
-                                        <div class="extra">
-                                            <div class="ui label">
-                                                <i class="green user icon"></i>
-                                                {{ timespend.account }}
-                                            </div>
-                                            <div class="ui label green">
-                                                {{ timespend.time_spend }} ساعت
-                                            </div>
+                        $('.ui.form')
+                                .form({
+                                    name: {
+                                        identifier: 'name',
+                                        rules: [
+                                            {
+                                                type: 'empty',
+                                                prompt: 'Please enter a username'
+                                            }
+                                        ]
+                                    },
+                                    username: {
+                                        identifier: 'username',
+                                        rules: [
+                                            {
+                                                type: 'empty',
+                                                prompt: 'Please enter a username'
+                                            }
+                                        ]
+                                    },
+                                    password: {
+                                        identifier: 'password',
+                                        rules: [
+                                        ]
+                                    }, repass: {
+                                        identifier: 'repassword',
+                                        rules: [
+                                            {
+                                                type: 'match[password]',
+                                                prompt: 'passwords must match'
+                                            }
+                                        ]
+                                    }, email: {
+                                        identifier: 'email',
+                                        rules: [
+                                            {
+                                                type: 'empty',
+                                                prompt: 'Please enter a username'
+                                            },
+                                            {
+                                                type: 'email',
+                                                prompt: 'It is an incorrect Email'
+                                            }
+                                        ]
+                                    }, birthday: {
+                                        identifier: 'birthdate',
+                                        rules: [
+                                            {
+                                                type: 'empty',
+                                                prompt: 'Please enter a username'
+                                            }
+                                        ]
+                                    }
+                                }, {
+                                    inline: true,
+                                    on: 'blur'
+                                });
+
+                    </script>
+                </form>
+            </div>
+        </div>
 
 
-                                            <div class="ui label blue">
-                                                {{ timespend.project.title }}
-                                            </div>
+        <div class="eleven wide column">
+            <div class="ui segment">
+                <h4 class="ui dividing header right aligned" title="سلام">
+                    زمان ها:
+                </h4>
+
+                {% for timespend in times %}
+                    <div class="ui segment right aligned">
+
+                        <div class="ui items">
+                            <div class="item">
+                                <div class="content padded">
+
+                                    <div class="description">{{ timespend.desc|safe }}</div>
+
+                                    <div class="extra">
+                                        <div class="ui label green">
+                                            {{ timespend.time_spend }} ساعت
                                         </div>
+
+
+                                        <a class="ui label blue" href="{% url "times" %}?p={{ timespend.project.id }}">
+                                            {{ timespend.project.title }}
+                                        </a>
+                                        <a class="ui label" href="{% url "times" %}?u={{ timespend.account.id }}">
+                                            <i class="green user icon"></i>
+                                            {{ timespend.account }}
+                                        </a>
+                                        <a class="ui label" href="{% url "times" %}?i={{ timespend.due_date|st_date }}">
+                                            <i class="green calendar icon"></i>
+                                            {{ timespend.due_date|to_jalali }}
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                    {% endfor %}
+                {% endfor %}
 
-                </div>
             </div>
-
         </div>
+
+    </div>
+
+
+    <div class="ui small test modal transition" style="margin-top: -98px;">
+        <i class="close icon"></i>
+
+        <div class="ui right aligned header">
+            ساخت پروژه جدید
+        </div>
+        <form class="ui form" id="project-form" method="post" action="">
+            {% csrf_token %}
+
+            <div class="content ui center aligned segment">
+
+                {{ form.errors }}
+
+                <div class="field">
+                    <label>
+                        عنوان
+                    </label>
+                    {{ project_form.title }}
+                </div>
+                <div class="required field">
+                    <label>
+                        مدیر پروژه
+                    </label>
+                    {{ project_form.responsible }}
+                </div>
+
+            </div>
+            <div class="actions">
+
+                <button class="ui positive labeled icon button" type="submit">
+                    ایجاد
+                    <i class="checkmark icon"></i>
+                </button>
+            </div>
+        </form>
+    </div>
 
     </article>
 {% endblock %}

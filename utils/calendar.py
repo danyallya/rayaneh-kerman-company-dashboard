@@ -3,6 +3,8 @@
 #dervied from http://farsitools.sf.net
 #Copyright (C) 2003-2011  Parspooyesh Fanavar (http://parspooyesh.com/)
 #see LICENSE.txt
+from datetime import date
+
 g_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 j_days_in_month = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29]
 
@@ -128,8 +130,52 @@ class JalaliToGregorian:
         self.gyear = gy
 
 
-def jalali(date):
+def jalali(date, sep="/"):
     if not date:
         return '---'
     jdate = GregorianToJalali(date.year, date.month, date.day)
-    return u"/".join([unicode(x) for x in jdate.getJalaliList()])
+    return sep.join([str(x) for x in jdate.getJalaliList()])
+
+
+def gregorian_to_jalali(date, sep='/'):
+    """
+    Gets georgian date
+    returns persian date in char(10) (/ separated)
+    """
+    if date == '' or date is None:
+        return ''
+    date_str = str(date)
+    year = date_str[0:4]
+    month = date_str[5:7]
+    day = date_str[8:10]
+
+    jdate = GregorianToJalali(int(year), int(month), int(day))
+    return sep.join([str(x) for x in jdate.getJalaliList()])
+
+
+def jalali_to_gregorian(dat_str):
+    # if len(dat_str) == 8:
+    #     year = dat_str[0:4]
+    #     month = dat_str[4:6]
+    #     day = dat_str[6:8]
+    # elif len(dat_str) == 10:
+    #     year = dat_str[0:4]
+    #     month = dat_str[5:7]
+    #     day = dat_str[8:10]
+    # else:
+    try:
+        splited = dat_str.split('/')
+        year = splited[2]
+        month = splited[1]
+        day = splited[0]
+        if not year.isdigit():
+            return None
+        if not month.isdigit():
+            return None
+        if not day.isdigit():
+            return None
+        jd = JalaliToGregorian(int(year), int(month), int(day))
+        dat_tuple = jd.getGregorianList()
+        return date(int(dat_tuple[0]), int(dat_tuple[1]), int(dat_tuple[2]))
+    except Exception:
+        pass
