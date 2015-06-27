@@ -11,6 +11,12 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+import sys
+
+sys.path.append('/home/apps/prk')
+sys.path.append('/home/apps/prk/prk')
+
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "prk.settings")
 
 application = get_wsgi_application()
