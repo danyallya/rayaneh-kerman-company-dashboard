@@ -9,3 +9,4 @@
 /static_files/*
 src/prk/prk_set.py
 src/prk/prk_se.py
+prk/prk_set.py
