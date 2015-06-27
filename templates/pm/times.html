@@ -140,10 +140,17 @@
                                             {{ timespend.time_spend }} ساعت
                                         </div>
 
-
-                                        <a class="ui label blue" href="{% url "times" %}?p={{ timespend.project.id }}">
-                                            {{ timespend.project.title }}
-                                        </a>
+                                        {% if timespend.project %}
+                                            <a class="ui label blue"
+                                               href="{% url "times" %}?p={{ timespend.project.id }}">
+                                                {{ timespend.project.title }}
+                                            </a>
+                                        {% else %}
+                                            <a class="ui label purple"
+                                               href="{% url "times" %}?p=0">
+                                                (متفرقه)
+                                            </a>
+                                        {% endif %}
                                         <a class="ui label" href="{% url "times" %}?u={{ timespend.account.id }}">
                                             <i class="green user icon"></i>
                                             {{ timespend.account }}

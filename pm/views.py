@@ -13,7 +13,7 @@ class TimeSpendForm(BaseForm):
         fields = ('project', 'time_spend', 'desc', 'due_date')
     def __init__(self, *args, **kwargs):
         super(TimeSpendForm, self).__init__(*args, **kwargs)
-        self.fields["due_date"].widget.attrs.update({'placeholder': "مثال: 13/04/1394"})
+        self.fields["due_date"].widget.attrs.update({'placeholder': u"مثال: 13/04/1394"})
 
 class ProjectForm(BaseForm):
     class Meta:
@@ -26,9 +26,12 @@ def times(request):
     p = request.GET.get('p')
     u = request.GET.get('u')
     i = request.GET.get('i')
-    ts = TimeSpend.objects.filter()
+    ts = TimeSpend.objects.filter().order_by('-id')
     if p:
-        ts = ts.filter(project__id=p)
+        if p == '0':
+            ts = ts.filter(project__isnull=True)
+        else:
+            ts = ts.filter(project__id=p)
     if u:
         ts = ts.filter(account__id=u)
     if i:
