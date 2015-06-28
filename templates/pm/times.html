@@ -48,73 +48,6 @@
                         ثبت
                     </button>
 
-
-                    <script>
-                        $('#add-project').click(function () {
-                            $('.small.test.modal').modal('setting', 'transition', "vertical flip")
-                                    .modal('show')
-                            ;
-                        });
-
-                        $('.ui.form')
-                                .form({
-                                    name: {
-                                        identifier: 'name',
-                                        rules: [
-                                            {
-                                                type: 'empty',
-                                                prompt: 'Please enter a username'
-                                            }
-                                        ]
-                                    },
-                                    username: {
-                                        identifier: 'username',
-                                        rules: [
-                                            {
-                                                type: 'empty',
-                                                prompt: 'Please enter a username'
-                                            }
-                                        ]
-                                    },
-                                    password: {
-                                        identifier: 'password',
-                                        rules: [
-                                        ]
-                                    }, repass: {
-                                        identifier: 'repassword',
-                                        rules: [
-                                            {
-                                                type: 'match[password]',
-                                                prompt: 'passwords must match'
-                                            }
-                                        ]
-                                    }, email: {
-                                        identifier: 'email',
-                                        rules: [
-                                            {
-                                                type: 'empty',
-                                                prompt: 'Please enter a username'
-                                            },
-                                            {
-                                                type: 'email',
-                                                prompt: 'It is an incorrect Email'
-                                            }
-                                        ]
-                                    }, birthday: {
-                                        identifier: 'birthdate',
-                                        rules: [
-                                            {
-                                                type: 'empty',
-                                                prompt: 'Please enter a username'
-                                            }
-                                        ]
-                                    }
-                                }, {
-                                    inline: true,
-                                    on: 'blur'
-                                });
-
-                    </script>
                 </form>
             </div>
         </div>
@@ -122,8 +55,8 @@
 
         <div class="eleven wide column">
             <div class="ui segment">
-                <h4 class="ui dividing header right aligned" title="سلام">
-                    زمان ها:
+                <h4 class="ui dividing header right aligned">
+گزارش کارها:
                 </h4>
 
                 {% for timespend in times %}
@@ -133,29 +66,42 @@
                             <div class="item">
                                 <div class="content padded">
 
-                                    <div class="description">{{ timespend.desc|safe }}</div>
+
+                                    <div class="description">
+                                        <input type="hidden" value="{% url 'edit_time' timespend.id %}"
+                                               class="time-url">
+                                        {% if timespend.account_id == user.id %}
+                                            <i class="orange edit icon link icon edit-time"></i>
+                                        {% endif %}
+                                        <span class="desc">{{ timespend.desc|safe }}</span></div>
 
                                     <div class="extra">
-                                        <div class="ui label green">
+                                        <div class="ui label green time_spend" data-value="{{ timespend.time_spend }}">
                                             {{ timespend.time_spend }} ساعت
                                         </div>
 
                                         {% if timespend.project %}
-                                            <a class="ui label blue"
-                                               href="{% url "times" %}?p={{ timespend.project.id }}">
+                                            <a class="ui label blue project"
+                                               href="{% url "times" %}?p={{ timespend.project.id }}"
+                                               data-value="{{ timespend.project_id }}">
                                                 {{ timespend.project.title }}
                                             </a>
                                         {% else %}
-                                            <a class="ui label purple"
-                                               href="{% url "times" %}?p=0">
+                                            <a class="ui label purple project"
+                                               href="{% url "times" %}?p=0"
+                                               data-value="">
                                                 (متفرقه)
                                             </a>
                                         {% endif %}
-                                        <a class="ui label" href="{% url "times" %}?u={{ timespend.account.id }}">
-                                            <i class="green user icon"></i>
+                                        <a class="ui label account"
+                                           href="{% url "times" %}?u={{ timespend.account.id }}"
+                                           data-value="{{ timespend.account_id }}">
+                                            <i class=" green user icon"></i>
                                             {{ timespend.account }}
                                         </a>
-                                        <a class="ui label" href="{% url "times" %}?i={{ timespend.due_date|st_date }}">
+                                        <a class="ui label due_date"
+                                           href="{% url "times" %}?i={{ timespend.due_date|st_date }}"
+                                           data-value="{{ timespend.due_date|to_jalali_rev }}">
                                             <i class="green calendar icon"></i>
                                             {{ timespend.due_date|to_jalali }}
                                         </a>
@@ -174,7 +120,7 @@
     </div>
 
 
-    <div class="ui small test modal transition" style="margin-top: -98px;">
+    <div class="ui small test modal transition" id="add-project-modal" style="margin-top: -98px;">
         <i class="close icon"></i>
 
         <div class="ui right aligned header">
@@ -185,7 +131,7 @@
 
             <div class="content ui center aligned segment">
 
-                {{ form.errors }}
+                {{ project_form.errors }}
 
                 <div class="field">
                     <label>
@@ -211,5 +157,90 @@
         </form>
     </div>
 
+    <div class="ui small test modal transition" id="edit-time-modal" style="margin-top: -98px;">
+        <i class="close icon"></i>
+
+        <div class="ui right aligned header">
+            ویرایش زمان
+        </div>
+        <form class="ui form" id="edit-time-form" method="post" action="">
+            {% csrf_token %}
+
+            <div class="content ui center aligned segment">
+
+                {{ edit_form.errors }}
+
+                <div class="field">
+                    <label>
+                        پروژه
+                    </label>
+                    {{ edit_form.project }}
+                </div>
+                <div class="required field">
+                    <label>
+                        زمان گذاشته شده
+                    </label>
+                    {{ edit_form.time_spend }}
+                </div>
+                <div class="required field">
+                    <label>
+                        تاریخ
+                    </label>
+                    {{ edit_form.due_date }}
+                </div>
+                <div class="required field">
+                    <label>
+                        شرح کار
+                    </label>
+                    {{ edit_form.desc }}
+                </div>
+
+            </div>
+            <div class="actions">
+
+                <button class="ui positive labeled icon button" type="submit">
+                    ثبت
+                    <i class="checkmark icon"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        $('#add-project').click(function () {
+            $('#add-project-modal').modal('setting', 'transition', "vertical flip")
+                    .modal('show');
+        });
+
+        $('.edit-time').click(function () {
+            var time_url = $(this).parent().find('.time-url').val();
+            var $time_div = $(this).parents('.content').first();
+            var $form = $('#edit-time-form');
+            $form.attr('action', time_url);
+            $('#id_edit-project').val($time_div.find('.project').attr('data-value'));
+            $('#id_edit-time_spend').val($time_div.find('.time_spend').attr('data-value'));
+            $('#id_edit-due_date').val($time_div.find('.due_date').attr('data-value'));
+            $('#id_edit-desc').val($time_div.find('.desc').html().trim());
+            $('#edit-time-modal').modal('setting', 'transition', "vertical flip")
+                    .modal('show');
+        });
+
+        $('.ui.form')
+                .form({
+                    name: {
+                        identifier: 'name',
+                        rules: [
+                            {
+                                type: 'empty',
+                                prompt: 'Please enter a username'
+                            }
+                        ]
+                    }
+                }, {
+                    inline: true,
+                    on: 'blur'
+                });
+
+    </script>
     </article>
 {% endblock %}

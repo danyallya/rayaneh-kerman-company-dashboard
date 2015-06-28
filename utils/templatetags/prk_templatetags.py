@@ -25,6 +25,16 @@ def to_jalali(date):
 
 
 @register.filter
+def to_jalali_rev(date):
+    res = gregorian_to_jalali(date)
+    splited = res.split('/')
+    year = splited[2]
+    month = splited[1]
+    day = splited[0]
+    return "/".join([year, month, day])
+
+
+@register.filter
 def st_date(date):
     if not date:
         return ''

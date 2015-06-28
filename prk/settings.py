@@ -83,7 +83,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-from prk.prk_set import *
+try:
+    from prk.prk_set import *
+except ImportError:
+    print("No local Settings is set. to customize settings create prk_set file.")
 
 
 TEMPLATES = [
