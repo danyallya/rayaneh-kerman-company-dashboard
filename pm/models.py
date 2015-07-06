@@ -91,7 +91,7 @@ class ProjectVersion(models.Model):
     _prev_title = models.CharField(max_length=128, editable=False, null=True, blank=True)
     summary = models.TextField(_(u'Summary'), null=True, blank=True)
     project = models.ForeignKey('Project', verbose_name=_(u'Project'))
-    milestones = models.ManyToManyField(Milestone, verbose_name=_(u'Milestones'), null=True, blank=True)
+    milestones = models.ManyToManyField(Milestone, verbose_name=_(u'Milestones'), blank=True)
     category = models.ForeignKey(ProjectCategory, verbose_name=_(u'Category'), null=True, blank=True)
     responsible = models.ForeignKey(Account, verbose_name=_(u'Responsible'), null=True, blank=True)
     entry_date = models.DateTimeField(_(u'Create Date'), auto_now_add=True)
@@ -153,7 +153,7 @@ class Project(models.Model):
 
 class ProjectMembership(models.Model):
     project = models.ForeignKey(Project, verbose_name=_(u'Project'))
-    members = models.ManyToManyField(Account, verbose_name=_(u'Members'), null=True, blank=True)
+    members = models.ManyToManyField(Account, verbose_name=_(u'Members'), blank=True)
     desc = models.TextField(verbose_name=u"توضیح", null=True)
 
     class Meta:

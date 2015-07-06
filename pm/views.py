@@ -1,12 +1,12 @@
 from django import forms
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
+from django.db.models.aggregates import Sum
 from django.http.response import HttpResponseRedirect
-
 from django.shortcuts import render, get_object_or_404
 
+from account.models import Account
 from pm.models import TimeSpend, Project
-
 from utils.forms import BaseForm
 
 
@@ -57,6 +57,9 @@ def times(request):
         ts = ts.filter(account__id=u)
     if i:
         ts = ts.filter(due_date=i)
+
+    ts_sum = ts.aggregate(Sum('time_spend'))['time_spend__sum']
+
     form = TimeSpendForm()
     edit_form = TimeSpendForm(prefix="edit")
     project_form = ProjectForm()
@@ -75,7 +78,8 @@ def times(request):
                 obj.save()
                 form = TimeSpendForm()
     return render(request, 'pm/times.html',
-                  {'times': ts, 'form': form, 'project_form': project_form, 'edit_form': edit_form})
+                  {'times': ts, 'form': form, 'project_form': project_form, 'edit_form': edit_form,
+                   'users': Account.objects.all(), 'ts_sum': ts_sum})
 
 
 @login_required
@@ -88,4 +92,12 @@ def edit_time(request, time_id):
             obj.account = request.user
             obj.creator = request.user
             obj.save()
+    return HttpResponseRedirect(reverse('times'))
+
+
+@login_required
+def delete_time(request, time_id):
+    obj = get_object_or_404(TimeSpend, id=time_id)
+    if obj.account_id == request.user.id:
+        obj.delete()
     return HttpResponseRedirect(reverse('times'))

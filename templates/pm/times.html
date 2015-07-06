@@ -54,10 +54,30 @@
 
 
         <div class="eleven wide column">
-            <div class="ui segment">
+            <div class="ui segment right aligned">
                 <h4 class="ui dividing header right aligned">
-گزارش کارها:
+                    گزارش کارها:
                 </h4>
+
+                <div class="ui blue float-right label">
+                    جمع :
+                    {{ ts_sum }}
+                    ساعت
+                </div>
+
+                {#                <div class="ui dropdown labeled search icon button" id="user-filter">#}
+                {#                    <i class="user icon"></i>#}
+                {#                    <span class="text">انتخاب کاربر</span>#}
+                {##}
+                {#                    <div class="menu">#}
+                {#                        {% for user in users %}#}
+                {#                            <div class="item">#}
+                {#                                {{ user }}#}
+                {#                                <i class="green user icon"></i>#}
+                {#                            </div>#}
+                {#                        {% endfor %}#}
+                {#                    </div>#}
+                {#                </div>#}
 
                 {% for timespend in times %}
                     <div class="ui segment right aligned">
@@ -70,8 +90,11 @@
                                     <div class="description">
                                         <input type="hidden" value="{% url 'edit_time' timespend.id %}"
                                                class="time-url">
+                                        <input type="hidden" value="{% url 'delete_time' timespend.id %}"
+                                               class="delete_time_url">
                                         {% if timespend.account_id == user.id %}
-                                            <i class="orange edit icon link icon edit-time"></i>
+                                            <i class="orange edit icon link icon edit-time" title="ویرایش"></i>
+                                            <i class="red delete icon link icon delete-time" title="حذف"></i>
                                         {% endif %}
                                         <span class="desc">{{ timespend.desc|safe }}</span></div>
 
@@ -96,7 +119,7 @@
                                         <a class="ui label account"
                                            href="{% url "times" %}?u={{ timespend.account.id }}"
                                            data-value="{{ timespend.account_id }}">
-                                            <i class=" green user icon"></i>
+                                            <i class="green user icon"></i>
                                             {{ timespend.account }}
                                         </a>
                                         <a class="ui label due_date"
@@ -206,6 +229,35 @@
         </form>
     </div>
 
+
+    <div class="ui small modal transition" id="delete-time-modal">
+        <i class="close icon"></i>
+
+        <div class="ui right aligned header">
+            حذف
+        </div>
+        <div class="content">
+            <div class="description">
+                <p>آیا از حذف این مورد اطمینان دارید?</p>
+            </div>
+            <div class="image">
+                <i class="archive icon"></i>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="two fluid ui inverted buttons">
+                <div class="ui negative labeled icon button">
+                    <i class="remove icon"></i>
+                    خیر
+                </div>
+                <div class="ui positive labeled icon button" id="delete-time-submit">
+                    <i class="checkmark icon"></i>
+                    بله
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         $('#add-project').click(function () {
             $('#add-project-modal').modal('setting', 'transition', "vertical flip")
@@ -225,6 +277,16 @@
                     .modal('show');
         });
 
+        $('.delete-time').click(function (e) {
+            var delete_time_url = $(this).parent().find('.delete_time_url').val();
+            $('#delete-time-modal').modal('setting', 'transition', "vertical flip")
+                    .modal('show');
+            $('#delete-time-submit').click(function (e) {
+                window.location.href = delete_time_url;
+                e.preventDefault();
+            });
+        });
+
         $('.ui.form')
                 .form({
                     name: {
@@ -241,6 +303,14 @@
                     on: 'blur'
                 });
 
+        $('.dropdown')
+                .dropdown({
+                    action: 'hide',
+                    onChange: function (value, text, $selectedItem) {
+                        // custom action
+                    }
+                })
+        ;
     </script>
     </article>
 {% endblock %}
