@@ -22,6 +22,7 @@ urlpatterns = [
     # Examples:
     # url(r'^', include('grappelli.urls')),
     url(r'^account/', include('account.urls')),
+    url(r'^idea/', include('idea.urls')),
     url(r'^pm/', include('pm.urls')),
     url(r'^$', 'home.views.index', name='index'),
 

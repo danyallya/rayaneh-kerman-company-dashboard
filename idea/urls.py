@@ -5,6 +5,7 @@ __author__ = 'M.Y'
 
 urlpatterns = patterns(
     'prk.idea.views',
-    # url(r'^login/$', 'auth.login', name='login'),
+    url(r'^list/$', 'idea_list', name='idea_list'),
+    url(r'^page/$', 'idea_page', name='idea_page'),
 
 )
