@@ -1,54 +1,244 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <div class="ui page grid segment tahoma">
-        <div class="ui grid">
-            <div class="four column row">
-                <div class="column">
-                    <div class="ui segment">
-                        نام و نام خانوادگی
-                        : {{ profile.user.first_name }} {{ profile.user.last_name }}
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui segment">
-                        شهر
-                        : {{ profile.city|default:"---" }}
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui segment">
-                        شماره تلفن
-                        : {{ profile.phone_number|default:"---" }}
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui segment">
-                        شماره موبایل
-                        : {{ profile.mobile_number|default:"---" }}
-                    </div>
-                </div>
-            </div>
-            <div class="two column row">
-                <div class="column">
-                    <div class="ui segment">
-                        کدپستی
-                        : {{ profile.post_code|default:"---" }}
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="ui segment">
-                        آدرس
-                        : {{ profile.address|default:"---" }}
-                    </div>
-                </div>
-            </div>
-            <div class="column row">
-                <div class="column">
-                    <a class="ui button square blue" href="{% url edit_profile %}">
-                        ویرایش مشخصات
-                    </a>
-                </div>
+
+    <div class="ui grid " dir="ltr">
+        <div class="four wide column">
+            <div class="ui vertical fluid tabular menu" id="rightmenu">
+                <a class="active item" data-tab="myprofile">
+                    مشخصات
+                </a>
+                <a class="item" data-tab="myproject">
+                    پروژه های من
+                </a>
+                <a class="item" data-tab="mytime">
+                    زمان های من
+                </a>
+                <a class="item" data-tab="mymoney">
+                    امور مالی من
+                </a>
+                <a class="item" data-tab="myidea">
+                    ایده های من
+                </a>
             </div>
         </div>
-    </div>
+        <div class=" ui twelve wide column  ">
+
+            <div class=" ui segment tab " data-tab="myprofile" dir="rtl">
+
+                <div class="ui column grid">
+                    <div class="column">
+                        <div class="ui small fade reveal image">
+                            <img class="visible content" src="/static/images/user.png">
+                            <img class="hidden content" src="/static/images/usericon.png">
+                        </div>
+                        <div class="ui big green labeled icon button" ID="changimage">
+                            <i class="signup icon" ></i>
+                            تغیر عکس
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui two column middle aligned very relaxed stackable grid">
+                    <div class="column">
+                        <div class="ui form">
+                            <div class="field">
+                                <label>نام</label>
+
+                                <div class="ui left icon input">
+                                    <input type="text" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>نام خانوادگی</label>
+
+                                <div class="ui left icon input">
+                                    <input type="text" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>نام کاربری</label>
+
+                                <div class="ui left icon input">
+                                    <input type="text" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>ایمیل</label>
+
+                                <div class="ui left icon input">
+                                    <input type="text" placeholder="">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui vertical divider">
+                        or
+                    </div>
+                    <div class="center aligned column">
+                        <div class="ui big green labeled icon button">
+                            <i class="signup icon"></i>
+                            تغیر اطلاعات کاربری
+                        </div>
+                        <div id="change-user" class="ui big green labeled icon button">
+                            <i class="signup icon"></i>
+                            تغیر کلمه رمز عبور
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui segment tab " data-tab="myproject" dir="rtl">
+<div class="ui compact segments">
+  <div class="ui raised segment">
+  <h3>اسم پروژه</h3>
+      <h4>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</h4>
+</div>
+    <div class="ui raised segment">
+  <h3>اسم پروژه</h3>
+      <h4>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</h4>
+</div>
+    <div class="ui raised segment">
+  <h3>اسم پروژه</h3>
+      <h4>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</h4>
+</div>
+    <div class="ui raised segment">
+  <h3>اسم پروژه</h3>
+      <h4>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات</h4>
+</div>
+</div>
+            </div>
+            <div class="ui segment tab " data-tab="mytime" dir="rtl">
+
+                <h4 class="ui dividing header right aligned">
+                    گزارش کارها:
+                </h4>
+
+                <div class="ui blue float-right label">
+                    جمع :
+                    None
+                    ساعت
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="ui segment tab " data-tab="mymoney" dir="rtl">
+
+            </div>
+              <div class="ui segment tab " data-tab="myidea"dir="rtl">
+
+             </div>
+            <div class="ui modal" id="modalchanguser">
+                <i class="close icon"></i>
+
+                <div class="header">
+                    تغیر کلمه عبور
+                </div>
+                <div class="image content">
+
+                    <div class="description">
+                        <div class="ui form">
+                            <div class="field">
+                                <label>کلمه عبور جدید</label>
+
+                                <div class="ui left icon input">
+                                    <input type="password" placeholder="">
+
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label>تکرار کلمه عبور جدید</label>
+
+                                <div class="ui left icon input">
+                                    <input type="password" placeholder="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+
+                    <div class="ui positive right labeled icon button">
+                        تغیرات اعمال شود
+                        <i class="checkmark icon"></i>
+                    </div>
+                </div>
+            </div>
+               <div class="ui modal" id="modalchangimage">
+                <i class="close icon"></i>
+
+                <div class="header">
+تغیر عکس کاربری
+                </div>
+                <div class="image content">
+
+                    <div class="description">
+                        <div class="ui form">
+                            <div class="field">
+ <div class="ui positive right labeled icon button">
+وارد کردن عکس
+
+                    </div>
+                            </div>
+                            <div class="field">
+                                <label>آدرس عکس</label>
+
+                                <div class="ui left icon input">
+                                    <input type="password" placeholder="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+
+                    <div class="ui positive right labeled icon button">
+                        تغیرات اعمال شود
+                        <i class="checkmark icon"></i>
+                    </div>
+                </div>
+            </div>
+            <script>
+
+                 $('#changimage').click(function () {
+
+                    $('#modalchangimage')
+                            .modal('show')
+                    ;
+
+                });
+                $('#change-user').click(function () {
+
+                    $('#modalchanguser')
+                            .modal('show')
+                    ;
+
+                });
+
+
+                $('#rightmenu .item')
+                        .tab()
+                ;
+            </script>
 {% endblock %}
