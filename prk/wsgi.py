@@ -8,15 +8,17 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
 import os
-
-from django.core.wsgi import get_wsgi_application
-
 import sys
 
-sys.path.append('/home/apps/prk')
-sys.path.append('/home/apps/prk/prk')
-
+sys.path.append('/www/prk')
+sys.path.append('/www/prk/prk')
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "prk.settings")
 
+# serve django via WSGI
+from django.core.wsgi import get_wsgi_application
+
 application = get_wsgi_application()
+import django
+
+django.setup()
