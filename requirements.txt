@@ -1,3 +1,4 @@
 django-autoslug
 Pillow
 django-model-utils
+pymysql

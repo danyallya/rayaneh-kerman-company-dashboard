@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,11 +84,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-try:
-    from prk.prk_set import *
-except ImportError:
-    print("No local Settings is set. to customize settings create prk_set file.")
-
 
 TEMPLATES = [
     {
@@ -121,3 +117,8 @@ AUTH_USER_MODEL = 'account.Account'
 LOGIN_URL = "/account/login/"
 LOGOUT_URL = "/admin/logout/"
 
+
+try:
+    from prk.prk_set import *
+except ImportError:
+    print("No local Settings is set. to customize settings create prk_set file.")
