@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^$', 'home.views.index', name='index'),
 
     #url(r'^admin/prk_files/', include(site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
 
     # url(r'^attachments/', include('attachments.account_urls')),
