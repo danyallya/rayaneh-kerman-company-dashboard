@@ -1,8 +1,0 @@
-{% extends 'grappelli:admin/change_list.html' %}
-{% block object-tools-items %}
-    {% if cl.opts.module_name == 'user'%}
-    <li><a href="{% url user_inputs %}"
-           class="grp-add-link grp-state-focus">ورود کاربران از اکسل</a></li>
-    {% endif %}
-    {{ block.super }}
-{% endblock %}
