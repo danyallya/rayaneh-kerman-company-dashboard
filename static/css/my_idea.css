@@ -1,0 +1,82 @@
+
+
+.asli {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+.satr1 {
+    height: 60px;
+}
+
+.satr1-1 {
+    float: right;
+    font-size: large;
+    color: red;
+    width: 200px;
+    margin: 0 auto;
+    background-color: #005f81;
+    height: 100%;
+}
+
+.satr1-1-text {
+    margin: 0 auto;
+    display: table;
+}
+
+.satr1-2 {
+    float: right;
+    width: 400px;
+    background-color: gold;
+    height: 60px;
+    margin: 0 auto !important;
+}
+
+.satr1-2-button {
+    margin: 19px 9px;
+}
+
+.satr1-3 {
+    width: 800px;
+    background-color: #c71f7e;
+    height: 100%;
+}
+
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+
+.minheight {
+    min-height: 100px;
+}
+
+.font {
+    font-family: Nazanin, tahoma;
+    direction: rtl;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.font1 {
+    font-family: Nazanin, tahoma;
+    direction: rtl;
+    font-size: 18px;
+    text-align: justify;
+    margin: 25px;
+}
+.box-margin
+{
+    margin-top: 30px!important;
+}
+.box-padding
+{
+    padding-top: 30px!important;
+}
+.box-margin-bottom
+{
+    margin-bottom: 30px;
+}

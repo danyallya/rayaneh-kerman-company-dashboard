@@ -1,0 +1,86 @@
+.button1 {
+
+}
+
+.lefttable1 {
+    padding: 10px 130px !important;
+}
+
+.chat-padding {
+    padding-top: 25px !important;
+}
+
+.top-button1 {
+    width: 436px;
+}
+
+.header-top-buttons-left {
+    width: 600px;
+    height: 50px;
+}
+
+.header-top-buttons2-left1 {
+    width: 200px;
+}
+
+.righttable-top-buttons {
+
+}
+
+.righttable-bottom-buttons {
+
+}
+
+.chat-height {
+    height: 1108px;
+}
+
+.chat-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.center-margin {
+    margin: 0 auto;
+}
+
+.lefttable-bottom {
+
+}
+
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+
+.seg-slider {
+    margin: 0 115px !important;
+
+}
+.slider
+{
+    overflow: hidden;
+    white-space: nowrap;
+}
+.slider-item {
+    display: inline-block;
+    margin-left: 63px;
+}
+.slider-item:last-child
+{
+    margin-left: 0px;
+}
+.slide-icon-right {
+    margin-top: 70px !important;
+    cursor: pointer;
+    margin-right: -17px!important;
+}
+.slide-icon-left
+{
+    padding-left: 18px!important;
+    margin-top: 70px !important;
+    cursor: pointer;
+}

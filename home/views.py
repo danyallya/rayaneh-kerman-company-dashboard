@@ -23,3 +23,23 @@ def get_images(request):
     #     f.close()
 
     return HttpResponse("OK")
+
+
+def my_idea(request):
+    return render_to_response('my_idea.html')
+
+
+def list_idea(request):
+    return render_to_response('list_idea.html')
+
+
+def mahsool(request):
+    return render_to_response('mahsool.html')
+
+
+def list_mahsool(request):
+    return render_to_response('list_mahsool.html')
+
+
+def project(request):
+    return render_to_response('project.html')

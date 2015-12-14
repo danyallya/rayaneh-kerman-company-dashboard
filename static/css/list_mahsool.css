@@ -1,0 +1,22 @@
+.label1 {
+    margin-right: 212px !important;
+}
+
+.box-padding {
+    padding-top: 30px;
+    padding-right: 50px;
+}
+
+.box-segment {
+    width: 350px;
+    margin: 0 auto !important;
+}
+
+.box-pic {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+.no-pad{
+    padding-right: calc(1rem + 0.2em)!important;
+}

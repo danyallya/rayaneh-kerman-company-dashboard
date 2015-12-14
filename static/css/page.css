@@ -1,0 +1,51 @@
+.padding-koli
+{
+    margin: 50px 100px!important;
+}
+.font {
+    font-family: Nazanin, tahoma;
+    direction: rtl;
+    font-size: 18px;
+    text-align: justify;
+}
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+.minheight {
+    min-height: 100px;
+}
+.grid-image-icon-margin
+{
+    margin-top: 26px!important;
+    cursor: pointer;
+}
+.scroll-img
+{
+    width: 100px;
+
+
+}
+.scroll-img-div
+{
+    display: inline-block;
+    overflow: hidden;
+
+}
+.scroll-right-icon
+{
+    position: absolute;
+    top: 12px;
+    right: -2px;
+}
+
+
+.scroll-left-icon
+{
+    position: absolute;
+    left: -2px;
+    top: 12px;
+}

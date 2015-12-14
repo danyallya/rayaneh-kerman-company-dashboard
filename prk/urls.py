@@ -17,7 +17,6 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 
-
 urlpatterns = [
     # Examples:
     # url(r'^', include('grappelli.urls')),
@@ -25,8 +24,14 @@ urlpatterns = [
     url(r'^idea/', include('idea.urls')),
     url(r'^pm/', include('pm.urls')),
     url(r'^$', 'home.views.index', name='index'),
+    url(r'^my_idea/$', 'home.views.my_idea', name="my_idea"),
+    url(r'^list_idea/$', 'home.views.list_idea', name="list_idea"),
+    url(r'^mahsool/$', 'home.views.mahsool', name="mahsool"),
+    url(r'^list_mahsool/$', 'home.views.list_mahsool', name="list_mahsool"),
+        url(r'^project/$', 'home.views.project', name="project"),
 
-    #url(r'^admin/prk_files/', include(site.urls)),
+
+    # url(r'^admin/prk_files/', include(site.urls)),
     url(r'^admin/', include(admin.site.urls)),
 
     # url(r'^attachments/', include('attachments.account_urls')),

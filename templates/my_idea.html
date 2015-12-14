@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+     <script src="/static/js/my_idea.js"></script>
+    {% endblock %}
+ {% block extra_css %}
+      <link rel="stylesheet" href="/static/css/my_idea.css">
+    {% endblock %}
+
+{% block content %}
+
+  <div class="ui segment ">
+<div class="ui grid padded">
+    <div class=" ui sixteen wide column  center aligned padded">
+
+
+        <div class="satr1 ui grid sixteen column padded  ">
+            <div class=" eight wide column padded ">
+                <div class=" ui grid sixteen column padded  ">
+                    <div class=" three wide column ">
+                        <button class="ui medium red button right aligned" id="changeideabutton">
+                            نام ایده
+                        </button>
+                    </div>
+                    <div class=" thirteen wide column right aligned">
+
+                        <a class="ui label blue" id="editingbutton1">
+                            ویرایش
+                        </a>
+
+                        <a class="ui label blue">
+                            ماهیت
+                        </a>
+                        <a class="ui label blue">
+                            تاریخ
+                        </a>
+                        <a class="ui label blue">
+                            نام
+                        </a>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+            <div class=" eight wide column right aligned">
+                <div class="ui segment">
+                    <div class=" ui grid sixteen column center aligned ">
+
+                        <div class="three wide column center aligned">
+                            <button style="width: 120px;" class="ui red button mass">Red</button>
+                        </div>
+                        <div class="three wide column center aligned">
+                            <button style="width: 120px;" class="ui red button">Red</button>
+                        </div>
+                        <div class="three wide column center aligned">
+                            <button style="width: 120px;" class="ui red button">Red</button>
+                        </div>
+                        <div class="three wide column center aligned">
+                            <button style="width: 120px;" class="ui red button">Red</button>
+                        </div>
+                    </div></div></div>
+
+        </div>
+
+    </div>
+</div>
+<div class="ui segment minheight directionltr">
+    <a class="ui orange right ribbon label">
+        توضیحات مختصر
+    </a>
+
+    <p class="font ">
+        همچنین مدیرکل ارشاد اسلامی خراسان رضوی با حضور در خانه این مرحوم درگذشت محسن حاجی‌حسنی کارگر را به
+        خانواده وی تسلیت گفت .سرابی درحاشیه این دیدار گفت: مرحوم حسنی کارگر، نقطه افتخاری برای جهان اسلام
+        بود و
+        در منش و اخلاق و سجایای اخلاقی سرآمد جوانان بود و متأسفانه این جوان برجسته و نخبه قرآنی در آتش
+        بی‌تدبیری
+        و سوء مدیریت و اهمال آل سعود در منا به لقا ا... پیوست.همچنین، دکتر احمد نعینع قاری برجسته جهان اسلام
+        با
+        صدور پیامی درگذشت قاری و مبتهل کشورمان را به ملت ایران و جامعه قرآنی تسلیت گفت. در پیام این قاری
+        برجسته
+        آمده است: سوگند به خداوند بزرگ که این مصیبت عظمی بر ما بسیار گران و سنگین است. بی‌شک این شهدای
+        بزرگوار
+        اکنون در محضر الهی و در جوار ملکوتی پیامبر اکرم(ص) رزق و روزی دریافت می‌کنند. این درگذشتگان از فضلی
+        که
+        خداوند به آنها عطا نموده متنعم و شادمان هستند.
+    </p>
+
+</div>
+<div class="ui segment minheight directionltr">
+    <a class="ui orange right ribbon label directionltr">
+        توضیحات کامل
+    </a>
+
+    <p class="font">
+        همچنین مدیرکل ارشاد اسلامی خراسان رضوی با حضور در خانه این مرحوم درگذشت محسن حاجی‌حسنی کارگر را به
+        خانواده وی تسلیت گفت .سرابی درحاشیه این دیدار گفت: مرحوم حسنی کارگر، نقطه افتخاری برای جهان اسلام
+        بود و
+        در منش و اخلاق و سجایای اخلاقی سرآمد جوانان بود و متأسفانه این جوان برجسته و نخبه قرآنی در آتش
+        بی‌تدبیری
+        و سوء مدیریت و اهمال آل سعود در منا به لقا ا... پیوست.همچنین، دکتر احمد نعینع قاری برجسته جهان اسلام
+        با
+        صدور پیامی درگذشت قاری و مبتهل کشورمان را به ملت ایران و جامعه قرآنی تسلیت گفت. در پیام این قاری
+        برجسته
+        آمده است: سوگند به خداوند بزرگ که این مصیبت عظمی بر ما بسیار گران و سنگین است. بی‌شک این شهدای
+        بزرگوار
+        اکنون در محضر الهی و در جوار ملکوتی پیامبر اکرم(ص) رزق و روزی دریافت می‌کنند. این درگذشتگان از فضلی
+        که
+        خداوند به آنها عطا نموده متنعم و شادمان هستند.
+    </p>
+
+</div>
+
+
+<div class="ui segment minheight directionltr">
+    <a class="ui orange right ribbon label">Specs</a>
+
+    <p></p>
+    <a class="ui teal right ribbon label">Reviews</a>
+
+    <p></p>
+</div>
+    </div>
+<div class="ui modal   "style="width: 1000px !important;;margin-top: -212.5px; " id="editing">
+
+    <i class="close icon left aligned"></i>
+
+    <div></div>
+
+    <div class="ui header right aligned">
+        <span class="right aligned">
+      دیدگاه ها
+   </span></div>
+    <div class=" ui content right aligned">
+        <div class="header ui content ui form right aligned">
+            <div class="field">
+                <label>
+                    نام ایده
+                </label>
+                <input name="first-name" placeholder="" type="text" class="directionrtl">
+            </div>
+            <div class="field">
+                <label>
+                    توضیح مختصر ایده
+                </label>
+                <textarea rows="2" class="directionrtl"></textarea>
+            </div>
+            <div class="field  right aligned">
+                <label class=" right aligned">
+                    توضیح کامل ایده
+                </label>
+                <textarea class="directionrtl"></textarea>
+            </div>
+            <div class="field">
+                <label>
+                    توضیحات اضافی
+                </label>
+                <textarea rows="2" class="directionrtl"></textarea>
+            </div>
+
+            <div class="inline field error">
+                <div class="ui checkbox">
+                    <input class="" tabindex="0" type="checkbox">
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui button" id="cancel1">
+            انصراف
+        </div>
+        <div class="ui green button">
+            بروز رسانی
+        </div>
+    </div>
+</div>
+<div class="ui modal   "style="width: 1000px !important;;margin-top: -212.5px; " id="changeidea">
+
+    <i class="close icon left aligned"></i>
+
+    <div></div>
+
+    <div class="ui header right aligned">
+        <span class="right aligned">
+      دیدگاه ها
+   </span></div>
+    <div class=" ui content right aligned">
+        <div class="header ui content ui form right aligned">
+            <div class="field">
+                <label>
+                    نام ایده
+                </label>
+                <input name="first-name" placeholder="" type="text" class="directionrtl">
+            </div>
+            <div class="field">
+                <label>
+                    توضیح مختصر ایده
+                </label>
+                <textarea rows="2" class="directionrtl"></textarea>
+            </div>
+            <div class="field  right aligned">
+                <label class=" right aligned">
+                    توضیح کامل ایده
+                </label>
+                <textarea class="directionrtl"></textarea>
+            </div>
+            <div class="field">
+                <label>
+                    توضیحات اضافی
+                </label>
+                <textarea rows="2" class="directionrtl"></textarea>
+            </div>
+
+            <div class="inline field error">
+                <div class="ui checkbox">
+                    <input class="" tabindex="0" type="checkbox">
+                    <label>I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui button" id="cancel1">
+            انصراف
+        </div>
+        <div class="ui green button">
+            بروز رسانی
+        </div>
+    </div>
+</div>
+{% endblock %}

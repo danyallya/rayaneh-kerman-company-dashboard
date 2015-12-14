@@ -1,0 +1,103 @@
+body {
+    padding: 40px !important;
+}
+
+.minheight1 {
+    min-height: 685px;
+}
+
+.font {
+    font-family: Nazanin, tahoma;
+    direction: rtl;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+
+.card-pic-padding {
+    padding: 10px !important;
+}
+
+.segment-bottom-padding {
+    padding-right: 50px !important;
+    padding-left: 50px !important;
+
+}
+
+.segment-card-centercards {
+    margin: 12px auto !important;
+}
+
+.segment-card-icons {
+    margin-top: 200.75px !important;
+}
+
+.main-segment {
+    margin-top: 40px !important;
+    margin-bottom: 25px !important;
+}
+
+.slider1 {
+    margin: 0 20px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.slider1-item {
+    display: inline-block;
+    margin-left: 77.54px;
+
+}
+
+.slider1-item:last-child {
+    margin-left: 0;
+}
+
+.slide1-icon-left {
+    margin-top: 90px !important;
+    cursor: pointer;
+}
+
+.slide1-icon-right {
+    margin-top: 90px !important;
+    cursor: pointer;
+}
+
+.slider2 {
+    margin: 0 12px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.slider2-item {
+    display: inline-block;
+    width: 315px;
+    margin-left: 62.54px;
+}
+.slider2-item:last-child
+{
+margin-left: 0;
+}
+
+.slider2-item-cards {
+    width: 315px;
+    margin: 0 auto !important;
+}
+
+.slider2-item-card {
+    width: 300px;
+}
+.slider-opreration
+{}
+
+.cursor
+{
+    cursor: pointer;
+}
