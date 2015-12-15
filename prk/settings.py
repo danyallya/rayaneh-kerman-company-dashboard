@@ -116,6 +116,16 @@ AUTH_USER_MODEL = 'account.Account'
 LOGIN_URL = "/account/login/"
 LOGOUT_URL = "/admin/logout/"
 
+
+# EMAIL CONFIG
+DEFAULT_FROM_EMAIL = 'prkgroup.ir@gmail.com'
+SERVER_EMAIL = 'prkgroup.ir@gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'prkgroup.ir@gmail.com'
+EMAIL_HOST_PASSWORD = 'iprkgroup93s'
+
 try:
     from prk.prk_set import *
 except ImportError:

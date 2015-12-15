@@ -3,10 +3,22 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
 from django.template.context import RequestContext
+from utils.messages import ContactEmail
 
 
 def intro(request):
     return render(request, 'intro.html', {})
+
+
+def contact(request):
+    name = request.POST.get('n')
+    email = request.POST.get('e')
+    title = request.POST.get('t')
+    text = request.POST.get('te')
+
+    ContactEmail(name, email, title, text).start()
+
+    return HttpResponse("OK")
 
 
 @login_required

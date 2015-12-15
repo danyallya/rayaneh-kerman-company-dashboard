@@ -21,6 +21,8 @@ urlpatterns = [
     # Examples:
     # url(r'^', include('grappelli.urls')),
     url(r'^$', 'home.views.intro', name='intro'),
+    url(r'^contact/$', 'home.views.contact', name='intro'),
+
     url(r'^account/', include('account.urls')),
     url(r'^idea/', include('idea.urls')),
     url(r'^pm/', include('pm.urls')),

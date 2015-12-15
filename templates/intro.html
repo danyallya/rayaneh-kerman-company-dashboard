@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="/static/intro/css/tabstyles.css"/>
     <script src="/static/intro/modernizr.custom.js"></script>
     <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/intro/scroll.js"></script>
+    <script src="/static/intro/intro.js"></script>
 
 </head>
 <body>
@@ -266,16 +266,21 @@
     <div class="members-header">
         ارتباط با ما
     </div>
+{{ a|linebreaksbr }}
 
-    <form class="contact-box">
-        <input placeholder="نام" class="name right">
-        <input placeholder="ایمیل" class="email right">
-        <input placeholder="عنوان" class="title right">
-        <textarea placeholder="متن" class="text-contact"></textarea>
-        <button type="submit" class="send-btn">
+    <div class="message">
+        پیام شما با موفقیت ارسال شد.
+    </div>
+
+    <form class="contact-box" action="javascript:void(0)" method="post">
+
+        <input placeholder="نام" class="name right" id="contact-name">
+        <input type="email" placeholder="ایمیل" class="email right" id="contact-email">
+        <input placeholder="عنوان" class="title right" id="contact-title">
+        <textarea placeholder="متن" class="text-contact" id="contact-text"></textarea>
+        <button class="send-btn">
             ارسال
         </button>
-
 
     </form>
 
