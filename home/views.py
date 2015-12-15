@@ -1,8 +1,13 @@
 # -*- coding:utf-8 -*-
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.template.context import RequestContext
+
+
+def intro(request):
+    return render(request, 'intro.html', {})
+
 
 @login_required
 def index(request):

@@ -20,10 +20,11 @@ from django.contrib import admin
 urlpatterns = [
     # Examples:
     # url(r'^', include('grappelli.urls')),
+    url(r'^$', 'home.views.intro', name='intro'),
     url(r'^account/', include('account.urls')),
     url(r'^idea/', include('idea.urls')),
     url(r'^pm/', include('pm.urls')),
-    url(r'^$', 'home.views.index', name='index'),
+    url(r'^home/$', 'home.views.index', name='index'),
     url(r'^my_idea/$', 'home.views.my_idea', name="my_idea"),
     url(r'^list_idea/$', 'home.views.list_idea', name="list_idea"),
     url(r'^mahsool/$', 'home.views.mahsool', name="mahsool"),
