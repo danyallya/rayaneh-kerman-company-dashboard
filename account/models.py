@@ -93,6 +93,8 @@ class Account(BaseAccount):
 
     class Meta:
         app_label = 'account'
+        verbose_name_plural = "کاربران"
+        verbose_name = "کاربر"
 
 
 class Filter(models.Model):

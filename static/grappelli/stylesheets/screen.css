@@ -955,8 +955,8 @@ h1, .h1 {
     padding: 20px 40px 23px;
     font-weight: bold;
     color: #FFF;
-    background: rgba(47, 167, 148, 0.36);
-    border-radius: 31px;
+    background: linear-gradient(#4FB2D3, #309BBF);
+    /*border-radius: 31px;*/
 }
 
 h2 {
@@ -2509,7 +2509,7 @@ input.vTextField, input.vURLField, input.vFileBrowseField, textarea, .vLargeText
 }
 
 .grp-change-form .grp-module:not(.grp-submit-row) {
-    min-width: 960px
+    /*min-width: 960px*/
 }
 
 .grp-empty-form {
@@ -5883,7 +5883,7 @@ header#grp-header #grp-navigation h1#grp-admin-title {
     float: left;
     margin: 0;
     padding: 10px 10px;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 16px
 }
 
@@ -6340,4 +6340,44 @@ body.grp-popup #grp-content {
         -moz-box-sizing: content-box;
         box-sizing: content-box
     }
+}
+
+.select2-choices {
+    width: 100% !important;
+}
+
+.select2-container, .select2-container ul, .select2-container ul li, .select2-container-multi .select2-choices li {
+    direction: rtl !important;
+    text-align: right !important;
+    float: right !important;
+}
+
+.select2-search-choice-close {
+    left: 3px !important;
+    right: inherit !important;
+}
+
+/*SELECT2 OVERRIDE*/
+
+.select2-container-multi .select2-choices {
+    width: 100%;
+}
+
+.select2-container {
+    width: 758px;
+}
+
+.grp-dynamic-form .select2-container {
+    width: 150px;
+}
+
+.select2-container, .select2-container ul, .select2-container ul li, .select2-container-multi .select2-choices li {
+    direction: rtl;
+    text-align: right;
+    float: right;
+}
+
+.select2-search-choice-close {
+    left: 3px;
+    right: inherit;
 }

@@ -71,6 +71,44 @@ DATABASES = {
 }
 
 
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+        },
+        'null': {
+            'class': 'logging.NullHandler',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.security': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'py.warnings': {
+            'handlers': ['console'],
+        },
+    }
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -95,6 +133,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'utils.context_processors.default_settings',
             ],
         },
     },
@@ -117,6 +156,10 @@ LOGIN_URL = "/account/login/"
 LOGOUT_URL = "/admin/logout/"
 
 
+# GRAPPELLI SETTINGS
+GRAPPELLI_ADMIN_TITLE = u"پنل مدیریت PRK"
+
+
 # EMAIL CONFIG
 DEFAULT_FROM_EMAIL = 'prkgroup.ir@gmail.com'
 SERVER_EMAIL = 'prkgroup.ir@gmail.com'
@@ -125,6 +168,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'prkgroup.ir@gmail.com'
 EMAIL_HOST_PASSWORD = 'iprkgroup93s'
+
+SITE_VERSION = "0.1.5"
 
 try:
     from prk.prk_set import *

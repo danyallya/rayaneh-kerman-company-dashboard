@@ -9,17 +9,18 @@ JALALI_WEEKDAYS = [u"یکشنبه", u"دوشنبه", u"سه شنبه", u"چها�
 
 import math
 
+
 class Calverter:
     """
     Converter Main Class
     """
 
     def __init__(self):
-        self.J0000 = 1721424.5 # Julian date of Gregorian epoch: 0000-01-01
-        self.J1970 = 2440587.5 # Julian date at Unix epoch: 1970-01-01
-        self.JMJD  = 2400000.5 # Epoch of Modified Julian Date system
-        self.J1900 = 2415020.5 # Epoch (day 1) of Excel 1900 date system (PC)
-        self.J1904 = 2416480.5 # Epoch (day 0) of Excel 1904 date system (Mac)
+        self.J0000 = 1721424.5  # Julian date of Gregorian epoch: 0000-01-01
+        self.J1970 = 2440587.5  # Julian date at Unix epoch: 1970-01-01
+        self.JMJD = 2400000.5  # Epoch of Modified Julian Date system
+        self.J1900 = 2415020.5  # Epoch (day 1) of Excel 1900 date system (PC)
+        self.J1904 = 2416480.5  # Epoch (day 0) of Excel 1904 date system (Mac)
 
         self.norm_leap = ("Normal year", "Leap year")
 
@@ -68,17 +69,18 @@ class Calverter:
     def leap_gregorian(self, year):
         "Is a given year in the Gregorian calendar a leap year ?"
 
-        return ((year % 4) == 0) and (not(((year % 100) == 0) and ((year % 400) != 0)))
+        return ((year % 4) == 0) and (not (((year % 100) == 0) and ((year % 400) != 0)))
 
     def gregorian_to_jd(self, year, month, day):
         "Determine Julian day number from Gregorian calendar date"
 
         tm = 0 if month <= 2 else (-1 if self.leap_gregorian(year) else -2)
 
-        return (GREGORIAN_EPOCH - 1) + (365 * (year - 1)) + math.floor((year - 1) / 4) +  (-math.floor((year - 1) / 100)) + \
+        return (GREGORIAN_EPOCH - 1) + (365 * (year - 1)) + math.floor((year - 1) / 4) + (
+            -math.floor((year - 1) / 100)) + \
                math.floor((year - 1) / 400) + math.floor((((367 * month) - 362) / 12) + tm + day)
 
-    def jd_to_gregorian(self, jd) :
+    def jd_to_gregorian(self, jd):
         "Calculate Gregorian calendar date from Julian day"
 
         wjd = math.floor(jd - 0.5) + 0.5
@@ -91,7 +93,7 @@ class Calverter:
         dquad = dcent % 1461
         yindex = math.floor(dquad / 365)
         year = int((quadricent * 400) + (cent * 100) + (quad * 4) + yindex)
-        if not((cent == 4) or (yindex == 4)) :
+        if not ((cent == 4) or (yindex == 4)):
             year += 1
 
         yearday = wjd - self.gregorian_to_jd(year, 1, 1)
@@ -106,9 +108,9 @@ class Calverter:
     def n_weeks(self, weekday, jd, nthweek):
 
         j = 7 * nthweek
-        if nthweek > 0 :
+        if nthweek > 0:
             j += self.previous_weekday(weekday, jd)
-        else :
+        else:
             j += self.next_weekday(weekday, jd)
         return j
 
@@ -121,12 +123,12 @@ class Calverter:
         "Return array of ISO (year, week, day) for Julian day"
 
         year = self.jd_to_gregorian(jd - 3)[0]
-        if jd >= self.iso_to_julian(year + 1, 1, 1) :
+        if jd >= self.iso_to_julian(year + 1, 1, 1):
             year += 1
 
         week = int(math.floor((jd - self.iso_to_julian(year, 1, 1)) / 7) + 1)
         day = self.jwday(jd)
-        if day == 0 :
+        if day == 0:
             day = 7
 
         return year, week, day
@@ -143,12 +145,12 @@ class Calverter:
         day = int(math.floor(jd - self.gregorian_to_jd(year, 1, 1))) + 1
         return year, day
 
-    def pad(self, Str, howlong, padwith) :
+    def pad(self, Str, howlong, padwith):
         "Pad a string to a given length with a given fill character. "
 
         s = str(Str)
 
-        while s.length < howlong :
+        while s.length < howlong:
             s = padwith + s
         return s
 
@@ -157,20 +159,18 @@ class Calverter:
 
         return (((year * 11) + 14) % 30) < 11
 
-
-
     def leap_jalali(self, year):
         "Is a given year a leap year in the Jalali calendar ?"
 
-        return ((((((year - 474 if year > 0 else 473 ) % 2820) + 474) + 38) * 682) % 2816) < 682
+        return ((((((year - 474 if year > 0 else 473) % 2820) + 474) + 38) * 682) % 2816) < 682
 
     def jalali_to_jd(self, year, month, day):
         "Determine Julian day from Jalali date"
 
-        epbase = year - 474 if year>=0 else 473
+        epbase = year - 474 if year >= 0 else 473
         epyear = 474 + (epbase % 2820)
 
-        if month <= 7 :
+        if month <= 7:
             mm = (month - 1) * 31
         else:
             mm = ((month - 1) * 30) + 6
@@ -185,15 +185,15 @@ class Calverter:
         depoch = jd - self.jalali_to_jd(475, 1, 1)
         cycle = math.floor(depoch / 1029983)
         cyear = depoch % 1029983
-        if cyear == 1029982 :
+        if cyear == 1029982:
             ycycle = 2820
-        else :
+        else:
             aux1 = math.floor(cyear / 366)
             aux2 = cyear % 366
             ycycle = math.floor(((2134 * aux1) + (2816 * aux2) + 2815) / 1028522) + aux1 + 1
 
         year = int(ycycle + (2820 * cycle) + 474)
-        if year <= 0 :
+        if year <= 0:
             year -= 1
 
         yday = (jd - self.jalali_to_jd(year, 1, 1)) + 1
@@ -250,6 +250,9 @@ def gregorian_to_jalali(date, sep='/'):
     """
     if date == '' or date is None:
         return ''
+    if isinstance(date, datetime):
+        date = date.date()
+
     cal = Calverter()
     date_str = str(date)
     year = date_str[0:4]
@@ -260,6 +263,11 @@ def gregorian_to_jalali(date, sep='/'):
     format_date = "%s" + sep + "%s" + sep + "%s"
     return format_date % (
         str(dat_tuple[0]).rjust(4, '0'), str(dat_tuple[1]).rjust(2, '0'), str(dat_tuple[2]).rjust(2, '0'))
+
+
+def jalali_by_time(date, sep='/'):
+    jdate = gregorian_to_jalali(date, sep)
+    return "%s:%s - %s" % (date.hour, date.minute, jdate)
 
 
 def jalali_today():

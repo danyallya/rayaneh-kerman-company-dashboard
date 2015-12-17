@@ -19,7 +19,7 @@ from django.contrib import admin
 
 urlpatterns = [
     # Examples:
-    # url(r'^', include('grappelli.urls')),
+
     url(r'^$', 'home.views.intro', name='intro'),
     url(r'^contact/$', 'home.views.contact', name='intro'),
 
@@ -31,8 +31,7 @@ urlpatterns = [
     url(r'^list_idea/$', 'home.views.list_idea', name="list_idea"),
     url(r'^mahsool/$', 'home.views.mahsool', name="mahsool"),
     url(r'^list_mahsool/$', 'home.views.list_mahsool', name="list_mahsool"),
-        url(r'^project/$', 'home.views.project', name="project"),
-
+    url(r'^project/$', 'home.views.project', name="project"),
 
     # url(r'^admin/prk_files/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS

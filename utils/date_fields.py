@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 from django.utils.safestring import mark_safe
 
-from utils.calendar import jalali_to_gregorian, gregorian_to_jalali
-
+from utils.calverter import jalali_to_gregorian, gregorian_to_jalali
 
 __author__ = 'M.Y'
 from django import forms

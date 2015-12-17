@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 from django import forms
+from utils.calverter import gregorian_to_jalali
 
-from utils.calendar import gregorian_to_jalali
 from utils.date_fields import ShamsiDateField
 
 
