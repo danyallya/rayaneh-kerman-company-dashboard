@@ -4,16 +4,34 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import UserManager, AbstractUser
 from model_utils.managers import InheritanceManager
+from account.permissions import Permission, PERMISSION_TYPE
 
 
 class AccountRole(models.Model):
-    name = models.CharField(_(u'Role'), max_length=128)
+    name = models.CharField("نام", max_length=128)
 
     class Meta:
         app_label = 'account'
+        verbose_name_plural = 'نقش ها'
+        verbose_name = 'نقش'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
+
+
+class AccountPermission(models.Model):
+    perm = models.IntegerField(verbose_name="ماژول", choices=Permission.get_permission_choices())
+    perm_type = models.IntegerField(verbose_name="نوع", choices=PERMISSION_TYPE)
+
+    role = models.ForeignKey(AccountRole, verbose_name="نقش", related_name='perms')
+
+    class Meta:
+        app_label = 'account'
+        verbose_name_plural = 'اجازه ها'
+        verbose_name = 'اجازه'
+
+    def __str__(self):
+        return self.role.name + " - " + self.get_perm_display() + " - " + self.get_perm_type_display()
 
 
 class AccountTeam(models.Model):
@@ -22,7 +40,7 @@ class AccountTeam(models.Model):
     class Meta:
         app_label = 'account'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -53,21 +71,20 @@ class BaseAccount(AbstractUser):
         ('AD', 'Admin'),
         ('US', 'User'),
     )
-    role = models.ForeignKey(AccountRole, verbose_name=_(u'Role'), null=True, blank=True)
+    role = models.ForeignKey(AccountRole, verbose_name='نقش', null=True, blank=True)
     team = models.ForeignKey(AccountTeam, verbose_name=_(u'Team'), null=True, blank=True)
     type = models.CharField(_(u'Account Type'), max_length=4, choices=ACCOUNT_TYPES, default='US')
     follows = models.ManyToManyField('self', related_name='followers', symmetrical=False, blank=True)
     phone = models.CharField(_(u'Phone'), max_length=30, null=True, blank=True)
     im = models.CharField(_(u'IM'), max_length=255, null=True, blank=True)
     website = models.CharField(_(u'Website'), max_length=1024, null=True, blank=True)
-    # is_admin = models.BooleanField(default=False)
 
     objects = AccountManager()
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'email']
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s %s' % (self.first_name, self.last_name)
 
     def get_full_name(self):
@@ -104,7 +121,7 @@ class Filter(models.Model):
     class Meta:
         app_label = 'account'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -124,7 +141,7 @@ class AccountImage(models.Model):
     class Meta:
         app_label = 'account'
 
-    def __unicode__(self):
+    def __str__(self):
         return self.image.url
 
     @property

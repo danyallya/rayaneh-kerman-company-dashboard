@@ -3,7 +3,6 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from autoslug import AutoSlugField
 
-from account.models import Account
 from utils.models import BaseModel
 
 
@@ -29,7 +28,7 @@ class Milestone(models.Model):
     bug_fixed = models.PositiveIntegerField(_(u'Bugs Fixed'), null=True, blank=True)
     feature_to_develop = models.PositiveIntegerField(_(u'Feature to Develop'), null=True, blank=True)
     feature_developed = models.PositiveIntegerField(_(u'Feature Developed'), null=True, blank=True)
-    responsible = models.ForeignKey(Account, verbose_name=_(u'Responsible'), null=True, blank=True)
+    responsible = models.ForeignKey('account.Account', verbose_name=_(u'Responsible'), null=True, blank=True)
     status = models.ForeignKey(MilestoneStatus, verbose_name=_(u'Status'), null=True, blank=True)
     due_date = models.DateTimeField(_(u'Due Date'), null=True, blank=True)
     complete_date = models.DateTimeField(_(u'Date Completed'), null=True, blank=True)
@@ -44,7 +43,7 @@ class Milestone(models.Model):
         return self.title
 
 
-#     def clean(self):
+# def clean(self):
 #         if IssueFieldName.objects.filter(name=self.title).exists():
 #             if not self.pk:
 #                 raise ValidationError(_(u'There is another (type of) item with this title'))
@@ -61,7 +60,7 @@ class Milestone(models.Model):
 class ProjectCategory(models.Model):
     name = models.CharField(_(u'Category Name'), max_length=128)
     _prev_name = models.CharField(max_length=128, editable=False, null=True, blank=True)
-    responsible = models.ForeignKey(Account, verbose_name=_(u'Responsible'), null=True, blank=True)
+    responsible = models.ForeignKey('account.Account', verbose_name=_(u'Responsible'), null=True, blank=True)
     entry_date = models.DateTimeField(_(u'Create Date'), auto_now_add=True)
 
     class Meta:
@@ -72,7 +71,7 @@ class ProjectCategory(models.Model):
         return self.name
 
 
-#     def clean(self):
+# def clean(self):
 #         if IssueFieldName.objects.filter(name=self.name).exists():
 #             if not self.pk:
 #                 raise ValidationError(_(u'There is another (type of) item with this name'))
@@ -93,7 +92,7 @@ class ProjectVersion(models.Model):
     project = models.ForeignKey('Project', verbose_name=_(u'Project'))
     milestones = models.ManyToManyField(Milestone, verbose_name=_(u'Milestones'), blank=True)
     category = models.ForeignKey(ProjectCategory, verbose_name=_(u'Category'), null=True, blank=True)
-    responsible = models.ForeignKey(Account, verbose_name=_(u'Responsible'), null=True, blank=True)
+    responsible = models.ForeignKey('account.Account', verbose_name=_(u'Responsible'), null=True, blank=True)
     entry_date = models.DateTimeField(_(u'Create Date'), auto_now_add=True)
     update_date = models.DateTimeField(_(u'Update Date'), auto_now=True)
 
@@ -105,7 +104,7 @@ class ProjectVersion(models.Model):
         return u'%s / %s' % (self.project.title, self.title)
 
 
-#     def clean(self):
+# def clean(self):
 #         if IssueFieldName.objects.filter(name=self.title).exists():
 #             if not self.pk:
 #                 raise ValidationError(_(u'There is another (type of) item with this title'))
@@ -125,7 +124,7 @@ class Project(models.Model):
     _prev_title = models.CharField(max_length=128, editable=False, null=True, blank=True)
     # slug = AutoSlugField(populate_from='title', unique=True, blank=True)
     summary = models.TextField(_(u'Summary'), null=True, blank=True)
-    responsible = models.ForeignKey(Account, verbose_name=_(u'Responsible'), null=True, blank=True)
+    responsible = models.ForeignKey('account.Account', verbose_name=_(u'Responsible'), null=True, blank=True)
     entry_date = models.DateTimeField(_(u'Create Date'), auto_now_add=True)
     update_date = models.DateTimeField(_(u'Update Date'), auto_now=True)
 
@@ -137,7 +136,7 @@ class Project(models.Model):
         return self.title
 
 
-#     def clean(self):
+# def clean(self):
 #         if IssueFieldName.objects.filter(name=self.title).exists():
 #             if not self.pk:
 #                 raise ValidationError(_(u'There is another (type of) item with this title'))
@@ -153,7 +152,7 @@ class Project(models.Model):
 
 class ProjectMembership(models.Model):
     project = models.ForeignKey(Project, verbose_name=_(u'Project'))
-    members = models.ManyToManyField(Account, verbose_name=_(u'Members'), blank=True)
+    members = models.ManyToManyField('account.Account', verbose_name=_(u'Members'), blank=True)
     desc = models.TextField(verbose_name=u"توضیح", null=True)
 
     class Meta:
@@ -177,7 +176,7 @@ class Board(models.Model):
         return self.title
 
 
-#     def clean(self):
+# def clean(self):
 #         if IssueFieldName.objects.filter(name=self.title).exists():
 #             if not self.pk:
 #                 raise ValidationError(_(u'There is another (type of) item with this title'))
@@ -193,7 +192,7 @@ class Board(models.Model):
 
 class TimeSpend(BaseModel):
     # issue = models.ForeignKey(Issue, null=True, blank=True)
-    account = models.ForeignKey(Account, verbose_name=u"واگذارشده به")
+    account = models.ForeignKey('account.Account', verbose_name=u"واگذارشده به")
     project = models.ForeignKey(Project, null=True, blank=True)
     due_date = models.DateField(u"زمان", null=True)
     desc = models.TextField(verbose_name=u"توضیح", null=True)

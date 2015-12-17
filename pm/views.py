@@ -2,10 +2,12 @@ from django import forms
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db.models.aggregates import Sum
-from django.http.response import HttpResponseRedirect
+from django.http.response import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
+import math
 
 from account.models import Account
+from account.permissions import PermissionController, TimesPermission
 from pm.models import TimeSpend, Project
 from utils.forms import BaseForm
 
@@ -17,7 +19,7 @@ class TimeSpendForm(BaseForm):
 
     def __init__(self, *args, **kwargs):
         super(TimeSpendForm, self).__init__(*args, **kwargs)
-        self.fields["due_date"].widget.attrs.update({'placeholder': u"مثال: 13/04/1394"})
+        self.fields["due_date"].widget.attrs.update({'placeholder': u"مثال: 1394/04/13"})
         self.fields["time_spend"] = forms.CharField(max_length=255)
         self.fields["time_spend"].widget.attrs.update({'placeholder': u"مثال: 2.5 یا 2:30"})
 
@@ -33,6 +35,7 @@ class TimeSpendForm(BaseForm):
                     float(time_spend)
             except Exception:
                 self.errors['time_spend'] = self.error_class(["زمان وارد شده اشتباه است."])
+
         return cd
 
 
@@ -44,10 +47,14 @@ class ProjectForm(BaseForm):
 
 @login_required
 def times(request):
+    if not PermissionController.has_permission(request.user, TimesPermission):
+        return HttpResponseForbidden()
+
+    ts = PermissionController.get_queryset(request.user, TimesPermission)
+
     p = request.GET.get('p')
     u = request.GET.get('u')
     i = request.GET.get('i')
-    ts = TimeSpend.objects.filter().order_by('-due_date')
     if p:
         if p == '0':
             ts = ts.filter(project__isnull=True)
@@ -58,7 +65,11 @@ def times(request):
     if i:
         ts = ts.filter(due_date=i)
 
-    ts_sum = ts.aggregate(Sum('time_spend'))['time_spend__sum']
+    ts = ts.order_by('-due_date')
+
+    ts_sum = ts.aggregate(Sum('time_spend'))['time_spend__sum'] or '0'
+
+    ts_sum = "%.2f" % round(ts_sum, 2)
 
     form = TimeSpendForm()
     edit_form = TimeSpendForm(prefix="edit")
@@ -77,6 +88,7 @@ def times(request):
                 obj.creator = request.user
                 obj.save()
                 form = TimeSpendForm()
+
     return render(request, 'pm/times.html',
                   {'times': ts, 'form': form, 'project_form': project_form, 'edit_form': edit_form,
                    'users': Account.objects.all(), 'ts_sum': ts_sum})
