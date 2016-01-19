@@ -71,7 +71,7 @@ class BaseAccount(AbstractUser):
         ('AD', 'Admin'),
         ('US', 'User'),
     )
-    role = models.ForeignKey(AccountRole, verbose_name='نقش', null=True, blank=True)
+    role = models.ForeignKey(AccountRole, verbose_name='نقش', null=True)
     team = models.ForeignKey(AccountTeam, verbose_name=_(u'Team'), null=True, blank=True)
     type = models.CharField(_(u'Account Type'), max_length=4, choices=ACCOUNT_TYPES, default='US')
     follows = models.ManyToManyField('self', related_name='followers', symmetrical=False, blank=True)
