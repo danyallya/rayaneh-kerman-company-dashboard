@@ -1,177 +1,96 @@
 {% extends 'base.html' %}
 
-{% block extra_js %}
-     <script src="/static/js/page.js"></script>
-    {% endblock %}
- {% block extra_css %}
-      <link rel="stylesheet" href="/static/css/page.css">
-    {% endblock %}
-
 {% block content %}
 
-<div class="ui grid sixteen column  padded di ">
-    <div class=" six wide column center aligned">
-
-        <div class="ui green labeled icon button huge">
-            <i class="add circle icon"></i>
-            تغییر ایده ها
-        </div>
-    </div>
-    <div class=" ten wide column left aligned">
-
-
-    </div>
-
-
-</div>
-<div class="ui segment padding-koli">
-    <div class="ui grid sixteen column  padded ">
-        <div class=" eight wide column right aligned">
-            <div class="ui grid sixteen column">
-                <div class=" eight wide column right aligned">
-
-                    <div class="ui green  button huge">
-
-                        تغییر ایده ها
-                    </div>
-                </div>
-                <div class=" eight wide column right aligned">
-                    <a class="ui green image label huge directionltr">
-                        در حال انجام
-                        <div class="detail">
-                            وضعیت
-                        </div>
-                    </a>
-                </div>
-
+    <div class="ui  segment" style="padding: 30px;">
+        <div class="ui ">
+            <div class="ui  green labeled icon button">
+                <i class="plus icon"></i>
+                تغییر ایده
             </div>
 
+            <a class=" ui blue  label" style="float: left">
+                {{ idea.created_on }}
+            </a>
+            <a class=" ui blue  label" style="float: left">
+                ماهیت
+            </a>
+            <a class=" ui blue  label" style="float: left">
+                {{ idea.state }}
+            </a>
+            <a class=" ui blue  label" style="float: left">
+                Home
+            </a>
+            <a class="ui blue  label" style="float: left">
+                Messages
+            </a>
+            <a class="ui blue  label" style="float: left">
+                Friends
+            </a>
+
         </div>
-        <div class=" eight wide column left aligned">
+        <br>
 
-            <div class="ui compact green inverted menu huge ">
-
-
-                <a class="item">
-                    <i class="icon users"></i> Friends
-
-                </a>
-                <a class="item">
-                    <i class="icon users"></i> Friends
-
-                </a>
-                <a class="item">
-                    <i class="icon users"></i> Friends
-
-                </a>
-            </div>
-        </div>
-
-
-    </div>
-    <div class="ui divider"></div>
-    <div class="ui segment minheight">
-
-        <p class="font">
-            همچنین مدیرکل ارشاد اسلامی خراسان رضوی با حضور در خانه این مرحوم درگذشت محسن حاجی‌حسنی کارگر را به
-            خانواده وی تسلیت گفت .سرابی درحاشیه این دیدار گفت: مرحوم حسنی کارگر، نقطه افتخاری برای جهان اسلام
-            بود و
-            در منش و اخلاق و سجایای اخلاقی سرآمد جوانان بود و متأسفانه این جوان برجسته و نخبه قرآنی در آتش
-            بی‌تدبیری
-            و سوء مدیریت و اهمال آل سعود در منا به لقا ا... پیوست.همچنین، دکتر احمد نعینع قاری برجسته جهان اسلام
-            با
-            صدور پیامی درگذشت قاری و مبتهل کشورمان را به ملت ایران و جامعه قرآنی تسلیت گفت. در پیام این قاری
-            برجسته
-            آمده است: سوگند به خداوند بزرگ که این مصیبت عظمی بر ما بسیار گران و سنگین است. بی‌شک این شهدای
-            بزرگوار
-            اکنون در محضر الهی و در جوار ملکوتی پیامبر اکرم(ص) رزق و روزی دریافت می‌کنند. این درگذشتگان از فضلی
-            که
-            خداوند به آنها عطا نموده متنعم و شادمان هستند.
-        </p>
-
-    </div>
-    <div class="ui grid sixteen column center aligned">
-        <div class="eight wide column center aligned">
-            <div class="ui grid sixteen column center aligned" style="height:100px!important;">
-                <div class="ten wide column center aligned">
-                    <div class="ui large green inverted progress directionltr" data-percent="74" id="example1"
-                         style="border: 2px solid black;">
-                        <div class="bar">
-                            <div class="progress"></div>
+        <div class="ui  divider"></div>
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="three column row">
+                    <div class="left floated column">
+                        <div class="ui  red labeled icon button">
+                            {{ idea.title }}
                         </div>
                     </div>
-                </div>
-                <div class="five wide column center aligned">
-                </div>
-                <div class="one wide column left aligned" style=" height: 20px;">
-                    <div class="ui vertical divider"></div>
-                </div>
-            </div>
-        </div>
-        <div class="two wide column"></div>
-        <div class="six wide column center aligned directionrtl">
-            <div style="overflow: hidden">
+                    <div class="  column">
+                        <a class="ui teal  label">
+                            {{ idea.creator }}
+                        </a>
+                        <a class="ui teal  label">
+                            {{ idea.created_on }}
+                        </a>
+
+                    </div>
+                    <div class="right floated column">
 
 
-                <div class="scroll-left-icon">
-                    <i class="arrow circle left icon big grid-image-icon-margin slider-left"></i>
+                        <a class="ui grey  label">
+                            وضعیت ایده
+                        </a>
+
+                        <a class="ui grey  label">
+                            ماهیت ایده
+                        </a>
+                    </div>
                 </div>
+                <div class="sixteen wide column">
 
 
-                <div class="slider-wrap" style="overflow: hidden;white-space: nowrap;margin-left: 20px; margin-right: 20px">
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
+                    <div class="ui segment">
+                        <div class="ui top right attached label">خلاصه ایده</div>
+                        <p>
+                            {{ idea.brief }}
+                        </p>
                     </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
+
+
+                    <div class="ui segment">
+                        <div class="ui top right attached label">توضیحات ایده خام</div>
+                        <p>
+                            {{ idea.first_desc }}
+                        </p>
                     </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
-                    </div>
-                    <div class="center aligned item scroll-img-div">
-                        <img class="ui circular image center-margin scroll-img"
-                             src="/static/images/T1_NPic(4040e.ir)_1401258282.jpg">
+
+                    <div class="ui segment">
+                        <div class="ui top right attached label">توجیه اقتصادی</div>
+                        <p>
+                            {{ idea.economic_justification }}
+                        </p>
                     </div>
 
                 </div>
-                <div class="scroll-right-icon">
-                    <i class="arrow circle right icon big grid-image-icon-margin slider-right"></i>
-                </div>
+
 
             </div>
         </div>
-
-
     </div>
-</div>
-
-
 
 {% endblock %}

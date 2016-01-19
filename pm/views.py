@@ -67,7 +67,7 @@ def times(request):
 
     ts = ts.order_by('-due_date')
 
-    ts_sum = ts.aggregate(Sum('time_spend'))['time_spend__sum'] or '0'
+    ts_sum = ts.aggregate(Sum('time_spend'))['time_spend__sum'] or 0
 
     ts_sum = "%.2f" % round(ts_sum, 2)
 

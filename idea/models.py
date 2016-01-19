@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 from django.db import models
 
-from prk.account.models import Account
-from prk.pm.project.models import Project
-from prk.utils.models import Titled, BaseModel
+from account.models import Account
+from pm.models import Project
+from utils.models import Titled, BaseModel
 
 
 class IdeaState(Titled):
@@ -13,6 +13,7 @@ class IdeaState(Titled):
 
 
 class Idea(BaseModel):
+    brief = models.TextField(verbose_name=u"توضیح مختصر", null=True, blank=True)
     first_desc = models.TextField(verbose_name=u"توضیحات ایده خام", null=True, blank=True)
     economic_justification = models.TextField(verbose_name=u"توجیه اقتصادی", null=True, blank=True)
     project = models.ForeignKey(Project, verbose_name=u"پروژه", null=True, blank=True)

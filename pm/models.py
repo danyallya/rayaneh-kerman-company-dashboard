@@ -192,7 +192,7 @@ class Board(models.Model):
 
 class TimeSpend(BaseModel):
     # issue = models.ForeignKey(Issue, null=True, blank=True)
-    account = models.ForeignKey('account.Account', verbose_name=u"واگذارشده به")
+    account = models.ForeignKey('account.Account', verbose_name=u"واگذارشده به", related_name='assignes')
     project = models.ForeignKey(Project, null=True, blank=True)
     due_date = models.DateField(u"زمان", null=True)
     desc = models.TextField(verbose_name=u"توضیح", null=True)
@@ -201,3 +201,5 @@ class TimeSpend(BaseModel):
 
     class Meta:
         app_label = 'pm'
+        verbose_name = "زمان"
+        verbose_name_plural = "زمان ها"

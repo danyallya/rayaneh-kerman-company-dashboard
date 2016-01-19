@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+    <script src="/static/js/list_idea.js"></script>
+{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/css/list_idea.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="ui segment directionltr">
+        <div class="satr1 ui grid sixteen column  padded ">
+            <div class=" twelve wide column left aligned">
+
+                <div class="ui compact green inverted menu ">
+                    <a class="item">
+                        <i class="icon mail "></i> Messages
+
+                    </a>
+                    <a class="item">
+                        <i class="icon users"></i> Friends
+
+                    </a>
+                    <a class="item">
+                        <i class="icon users"></i> Friends
+
+                    </a>
+                    <a class="item">
+                        <i class="icon users"></i> Friends
+
+                    </a>
+                    <a class="item">
+                        <i class="icon users"></i> Friends
+
+                    </a>
+                    <a class="item">
+                        <i class="icon users"></i> Friends
+
+                    </a>
+                </div>
+            </div>
+            <div class=" four wide column right aligned">
+
+                <div class="ui green labeled icon button huge" id="changeideabutton">
+                    <i class="add circle icon"></i>
+                    ایده جدید
+                </div>
+            </div>
+
+        </div>
+        <div class="ui divider">
+
+        </div>
+
+        {% for idea in ideas %}
+            <div class="ui segment ">
+                <div class=" ui grid sixteen column padded ">
+                    <div class=" five wide column left aligned ">
+                        <button style="width: 120px;" class="ui red button mass">Red</button>
+                        <button style="width: 120px;" class="ui red button mass">Red</button>
+                    </div>
+                    <div class=" nine wide column right aligned ">
+
+
+                        <a class="ui label blue">
+                            {{ idea.created_on }}
+                        </a>
+
+                        <a class="ui label blue">
+                            {{ idea.creator }}
+                        </a></div>
+
+                    <div class=" two wide column ">
+                        <a style="width: 120px;" class="ui red button mass" href="{% url 'idea_page' idea.id %}">
+                            {{ idea.title }}
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="ui grid padded">
+                    <p class="font1">
+
+                        {{ idea.brief }}
+
+                    </p>
+                </div>
+
+
+                <div class=" ui grid sixteen column padded  ">
+                    <div class=" six wide column left aligned ">
+                        <button style="width: 120px;" class="ui red button mass">
+                            نام ایده
+                        </button>
+                        <button style="width: 120px;" class="ui red button mass">
+                            نام ایده
+                        </button>
+                        <button style="width: 120px;" class="ui red button mass">
+                            نام ایده
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+
+    <div class="ui modal   " style="width: 1000px !important;;margin-top: -212.5px; " id="changeidea">
+
+        <i class="close icon left aligned"></i>
+
+
+        <div class="ui header right aligned">
+        <span class="right aligned">
+      ایده جدید
+       </span>
+        </div>
+
+        <form class=" ui content right aligned" method="post" action="">
+            {% csrf_token %}
+
+            <div class="header ui content ui form right aligned">
+                <div class="field">
+                    <label>
+                        نام ایده
+                    </label>
+                    {{ form.title }}
+                </div>
+                <div class="field">
+                    <label>
+                        توضیح مختصر ایده
+                    </label>
+                    {{ form.brief }}
+                </div>
+                <div class="field  right aligned">
+                    <label class=" right aligned">
+                        توضیح کامل ایده
+                    </label>
+                    {{ form.first_desc }}
+                </div>
+                <div class="field">
+                    <label>
+                        توجیه اقتصادی
+                    </label>
+                    {{ form.economic_justification }}
+                </div>
+
+                <div class="inline field error">
+                    <div class="ui checkbox">
+                        <input class="" tabindex="0" type="checkbox">
+                        <label>I agree to the Terms and Conditions</label>
+                    </div>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui button" id="cancel1">
+                    انصراف
+                </div>
+                <button class="ui green button" type="submit">
+                    ثبت
+                </button>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'account',
     'utils',
     'pm',
+    'idea',
 
 )
 
@@ -69,8 +70,6 @@ DATABASES = {
         'NAME': 'prk.db',
     }
 }
-
-
 
 LOGGING = {
     'version': 1,

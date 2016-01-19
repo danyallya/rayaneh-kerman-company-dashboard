@@ -46,10 +46,6 @@ def my_idea(request):
     return render_to_response('my_idea.html')
 
 
-def list_idea(request):
-    return render_to_response('list_idea.html')
-
-
 def mahsool(request):
     return render_to_response('mahsool.html')
 

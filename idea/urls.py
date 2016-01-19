@@ -5,7 +5,7 @@ __author__ = 'M.Y'
 
 urlpatterns = patterns(
     'idea.views',
-    url(r'^list/$', 'idea_list', name='idea_list'),
-    url(r'^page/$', 'idea_page', name='idea_page'),
+    url(r'^$', 'idea_list', name='idea_list'),
+    url(r'^page/(?P<idea_id>\d+)/$', 'idea_page', name='idea_page'),
 
 )

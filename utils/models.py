@@ -23,8 +23,20 @@ class Titled(models.Model):
         return self.title
 
 
-class BaseModel(Titled):
-    created_on = models.DateTimeField(verbose_name=u"تاریخ ایجاد", auto_now_add=True)
-    creator = models.ForeignKey('account.Account', verbose_name=u"سازنده", null=True, blank=True, related_name='income_creators')
-    # category = models.ForeignKey('categories.Category', verbose_name=u"دسته بندی", null=True, blank=True)
-    # tags = TaggableManager()
+class LogModel(models.Model):
+    creator = models.ForeignKey('account.Account', verbose_name="سازنده", null=True, blank=True)
+    created_on = models.DateTimeField(verbose_name="تاریخ ایجاد", auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
+class BaseModel(Titled, LogModel):
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
+    def update(self):
+        pass

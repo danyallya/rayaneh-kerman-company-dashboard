@@ -2,27 +2,26 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
-import autoslug.fields
 from django.conf import settings
+import autoslug.fields
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('utils', '__first__'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Board',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('title', models.CharField(verbose_name='Title', max_length=255, db_index=True)),
                 ('_prev_title', models.CharField(null=True, max_length=128, editable=False, blank=True)),
-                ('slug', autoslug.fields.AutoSlugField(populate_from='title', editable=False, unique=True)),
+                ('slug', autoslug.fields.AutoSlugField(unique=True, populate_from='title', editable=False)),
                 ('summary', models.TextField(null=True, verbose_name='Summary', blank=True)),
-                ('entry_date', models.DateTimeField(auto_now_add=True, verbose_name='Create Date')),
+                ('entry_date', models.DateTimeField(verbose_name='Create Date', auto_now_add=True)),
                 ('update_date', models.DateTimeField(auto_now=True, verbose_name='Update Date')),
             ],
             options={
@@ -32,10 +31,10 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Milestone',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('title', models.CharField(verbose_name='Title', max_length=255, db_index=True)),
                 ('_prev_title', models.CharField(null=True, max_length=128, editable=False, blank=True)),
-                ('slug', autoslug.fields.AutoSlugField(populate_from='title', editable=False, unique=True)),
+                ('slug', autoslug.fields.AutoSlugField(unique=True, populate_from='title', editable=False)),
                 ('effort', models.CharField(null=True, verbose_name='Effort', max_length=128, blank=True)),
                 ('effort_calc', models.PositiveIntegerField(null=True, verbose_name='Effort Calculated', editable=False, blank=True)),
                 ('bug_to_fixed', models.PositiveIntegerField(null=True, verbose_name='Bugs to Fixed', blank=True)),
@@ -44,9 +43,9 @@ class Migration(migrations.Migration):
                 ('feature_developed', models.PositiveIntegerField(null=True, verbose_name='Feature Developed', blank=True)),
                 ('due_date', models.DateTimeField(null=True, verbose_name='Due Date', blank=True)),
                 ('complete_date', models.DateTimeField(null=True, verbose_name='Date Completed', blank=True)),
-                ('entry_date', models.DateTimeField(auto_now_add=True, verbose_name='Create Date')),
+                ('entry_date', models.DateTimeField(verbose_name='Create Date', auto_now_add=True)),
                 ('update_date', models.DateTimeField(auto_now=True, verbose_name='Update Date')),
-                ('responsible', models.ForeignKey(verbose_name='Responsible', blank=True, null=True, to=settings.AUTH_USER_MODEL)),
+                ('responsible', models.ForeignKey(null=True, to=settings.AUTH_USER_MODEL, verbose_name='Responsible', blank=True)),
             ],
             options={
                 'ordering': ['-entry_date'],
@@ -55,9 +54,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='MilestoneStatus',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('status', models.CharField(verbose_name='Status', max_length=128)),
-                ('entry_date', models.DateTimeField(auto_now_add=True, verbose_name='Create Date')),
+                ('entry_date', models.DateTimeField(verbose_name='Create Date', auto_now_add=True)),
             ],
             options={
                 'ordering': ['-entry_date'],
@@ -66,14 +65,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Project',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('title', models.CharField(verbose_name='Title', max_length=255, db_index=True)),
                 ('_prev_title', models.CharField(null=True, max_length=128, editable=False, blank=True)),
-                ('slug', autoslug.fields.AutoSlugField(populate_from='title', editable=False, unique=True)),
                 ('summary', models.TextField(null=True, verbose_name='Summary', blank=True)),
-                ('entry_date', models.DateTimeField(auto_now_add=True, verbose_name='Create Date')),
+                ('entry_date', models.DateTimeField(verbose_name='Create Date', auto_now_add=True)),
                 ('update_date', models.DateTimeField(auto_now=True, verbose_name='Update Date')),
-                ('responsible', models.ForeignKey(verbose_name='Responsible', blank=True, null=True, to=settings.AUTH_USER_MODEL)),
+                ('responsible', models.ForeignKey(null=True, to=settings.AUTH_USER_MODEL, verbose_name='Responsible', blank=True)),
             ],
             options={
                 'ordering': ['-entry_date'],
@@ -82,11 +80,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ProjectCategory',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('name', models.CharField(verbose_name='Category Name', max_length=128)),
                 ('_prev_name', models.CharField(null=True, max_length=128, editable=False, blank=True)),
-                ('entry_date', models.DateTimeField(auto_now_add=True, verbose_name='Create Date')),
-                ('responsible', models.ForeignKey(verbose_name='Responsible', blank=True, null=True, to=settings.AUTH_USER_MODEL)),
+                ('entry_date', models.DateTimeField(verbose_name='Create Date', auto_now_add=True)),
+                ('responsible', models.ForeignKey(null=True, to=settings.AUTH_USER_MODEL, verbose_name='Responsible', blank=True)),
             ],
             options={
                 'ordering': ['-entry_date'],
@@ -95,25 +93,25 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ProjectMembership',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('desc', models.TextField(null=True, verbose_name='توضیح')),
-                ('members', models.ManyToManyField(null=True, verbose_name='Members', blank=True, to=settings.AUTH_USER_MODEL)),
+                ('members', models.ManyToManyField(verbose_name='Members', to=settings.AUTH_USER_MODEL, blank=True)),
                 ('project', models.ForeignKey(verbose_name='Project', to='pm.Project')),
             ],
         ),
         migrations.CreateModel(
             name='ProjectVersion',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
                 ('title', models.CharField(verbose_name='Title', max_length=255, db_index=True)),
                 ('_prev_title', models.CharField(null=True, max_length=128, editable=False, blank=True)),
                 ('summary', models.TextField(null=True, verbose_name='Summary', blank=True)),
-                ('entry_date', models.DateTimeField(auto_now_add=True, verbose_name='Create Date')),
+                ('entry_date', models.DateTimeField(verbose_name='Create Date', auto_now_add=True)),
                 ('update_date', models.DateTimeField(auto_now=True, verbose_name='Update Date')),
-                ('category', models.ForeignKey(verbose_name='Category', blank=True, null=True, to='pm.ProjectCategory')),
-                ('milestones', models.ManyToManyField(null=True, verbose_name='Milestones', blank=True, to='pm.Milestone')),
+                ('category', models.ForeignKey(null=True, to='pm.ProjectCategory', verbose_name='Category', blank=True)),
+                ('milestones', models.ManyToManyField(verbose_name='Milestones', to='pm.Milestone', blank=True)),
                 ('project', models.ForeignKey(verbose_name='Project', to='pm.Project')),
-                ('responsible', models.ForeignKey(verbose_name='Responsible', blank=True, null=True, to=settings.AUTH_USER_MODEL)),
+                ('responsible', models.ForeignKey(null=True, to=settings.AUTH_USER_MODEL, verbose_name='Responsible', blank=True)),
             ],
             options={
                 'ordering': ['-entry_date'],
@@ -122,18 +120,21 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='TimeSpend',
             fields=[
-                ('basemodel_ptr', models.OneToOneField(primary_key=True, to='utils.BaseModel', auto_created=True, serialize=False, parent_link=True)),
-                ('desc', models.TextField(null=True, verbose_name='توضیح', blank=True)),
+                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('title', models.CharField(verbose_name='عنوان', max_length=255)),
+                ('created_on', models.DateTimeField(verbose_name='تاریخ ایجاد', auto_now_add=True)),
+                ('due_date', models.DateField(null=True, verbose_name='زمان')),
+                ('desc', models.TextField(null=True, verbose_name='توضیح')),
                 ('time_spend', models.FloatField(null=True, verbose_name='زمان گذاشته شده')),
-                ('account', models.ForeignKey(verbose_name='واگذارشده به', to=settings.AUTH_USER_MODEL)),
-                ('project', models.ForeignKey(blank=True, null=True, to='pm.Project')),
+                ('account', models.ForeignKey(to=settings.AUTH_USER_MODEL, related_name='assignes', verbose_name='واگذارشده به')),
+                ('creator', models.ForeignKey(null=True, to=settings.AUTH_USER_MODEL, verbose_name='سازنده', blank=True)),
+                ('project', models.ForeignKey(null=True, to='pm.Project', blank=True)),
             ],
-            bases=('utils.basemodel',),
         ),
         migrations.AddField(
             model_name='milestone',
             name='status',
-            field=models.ForeignKey(verbose_name='Status', blank=True, null=True, to='pm.MilestoneStatus'),
+            field=models.ForeignKey(null=True, to='pm.MilestoneStatus', verbose_name='Status', blank=True),
         ),
         migrations.AddField(
             model_name='board',

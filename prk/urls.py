@@ -28,7 +28,6 @@ urlpatterns = [
     url(r'^pm/', include('pm.urls')),
     url(r'^home/$', 'home.views.index', name='index'),
     url(r'^my_idea/$', 'home.views.my_idea', name="my_idea"),
-    url(r'^list_idea/$', 'home.views.list_idea', name="list_idea"),
     url(r'^mahsool/$', 'home.views.mahsool', name="mahsool"),
     url(r'^list_mahsool/$', 'home.views.list_mahsool', name="list_mahsool"),
     url(r'^project/$', 'home.views.project', name="project"),
