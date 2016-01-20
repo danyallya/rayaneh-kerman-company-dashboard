@@ -9,8 +9,16 @@
 
 {% block content %}
 
-    <div class="ui segment directionltr">
+    <div class="ui segment ">
         <div class="satr1 ui grid sixteen column  padded ">
+            <div class=" four wide column right aligned">
+
+                <div class="ui green labeled icon button huge" id="changeideabutton">
+                    <i class="add circle icon"></i>
+                    ایده جدید
+                </div>
+            </div>
+
             <div class=" twelve wide column left aligned">
 
                 <div class="ui compact green inverted menu ">
@@ -40,13 +48,6 @@
                     </a>
                 </div>
             </div>
-            <div class=" four wide column right aligned">
-
-                <div class="ui green labeled icon button huge" id="changeideabutton">
-                    <i class="add circle icon"></i>
-                    ایده جدید
-                </div>
-            </div>
 
         </div>
         <div class="ui divider">
@@ -56,10 +57,12 @@
         {% for idea in ideas %}
             <div class="ui segment ">
                 <div class=" ui grid sixteen column padded ">
-                    <div class=" five wide column left aligned ">
-                        <button style="width: 120px;" class="ui red button mass">Red</button>
-                        <button style="width: 120px;" class="ui red button mass">Red</button>
+                    <div class=" two wide column ">
+                        <a style="width: 120px;" class="ui red button mass" href="{% url 'idea_page' idea.id %}">
+                            {{ idea.title }}
+                        </a>
                     </div>
+
                     <div class=" nine wide column right aligned ">
 
 
@@ -70,12 +73,11 @@
                         <a class="ui label blue">
                             {{ idea.creator }}
                         </a></div>
-
-                    <div class=" two wide column ">
-                        <a style="width: 120px;" class="ui red button mass" href="{% url 'idea_page' idea.id %}">
-                            {{ idea.title }}
-                        </a>
+                    <div class=" five wide column left aligned ">
+                        <button style="width: 120px;" class="ui red button mass">Red</button>
+                        <button style="width: 120px;" class="ui red button mass">Red</button>
                     </div>
+
 
                 </div>
 
@@ -89,6 +91,7 @@
 
 
                 <div class=" ui grid sixteen column padded  ">
+                    <div class="ten wide column"></div>
                     <div class=" six wide column left aligned ">
                         <button style="width: 120px;" class="ui red button mass">
                             نام ایده

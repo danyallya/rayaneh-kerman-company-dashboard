@@ -1,0 +1,33 @@
+.box-padding
+{
+    padding: 50px!important;
+}
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+.cursor
+{
+    cursor: pointer;
+}.directionrtl {
+     direction: rtl;
+ }
+
+.directionltr {
+    direction: ltr;
+}
+.cursor
+{
+    cursor: pointer;
+}
+.box-header-font-size
+{
+    font-size: xx-large;
+}
+.text-align
+{
+    text-align: center;
+}

@@ -56,3 +56,39 @@ def list_mahsool(request):
 
 def project(request):
     return render_to_response('project.html')
+
+
+def about(request):
+    return render_to_response('about.html')
+
+
+def work_page(request):
+    return render_to_response('work_page.html')
+
+
+def account_list(request):
+    return render_to_response('account_list.html')
+
+
+def account_page(request):
+    return render_to_response('account_page.html')
+
+
+def post_list(request):
+    return render_to_response('post_list.html')
+
+
+def post_page(request):
+    return render_to_response('post_page.html')
+
+
+def talk(request):
+    return render_to_response('talk.html')
+
+
+def work_list(request):
+    return render_to_response('work_list.html')
+
+
+def my_money(request):
+    return render_to_response('my_money.html')

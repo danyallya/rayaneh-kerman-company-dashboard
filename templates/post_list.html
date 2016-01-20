@@ -1,0 +1,354 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+     <script src="/static/js/post_list.js"></script>
+    {% endblock %}
+ {% block extra_css %}
+      <link rel="stylesheet" href="/static/css/post_list.css">
+    {% endblock %}
+
+{% block content %}
+<div class="ui grid">
+    <div class="one wide column"></div>
+    <div class="fourteen wide column">
+        <div class="ui segment">
+            <div class="ui grid">
+                <div class="one wide column"></div>
+                <div class="fifteen wide column">
+                    <div class="ui  labeled icon button huge"
+                         style="background-color: rebeccapurple;color: white" id="add-post-btn">
+                        <i class="add circle icon"></i>
+                        اضافه کردن پست
+                    </div>
+                </div>
+                <div class="one wide column"></div>
+                <div class="nine wide column">
+
+
+                    <div class="ui grid">
+
+                        <div class="sixteen wide column">
+                            <div class="ui segment">
+                                <div class="ui grid">
+                                    <div class="two wide column text-font-size">
+                                        عنوان پست
+                                    </div>
+                                    <div class="four wide column"></div>
+                                    <div class="two wide column text-font-size">
+                                        نام نویسنده
+                                    </div>
+                                    <div class="three wide column"></div>
+
+                                    <div class="one wide column text-font-size">
+                                        تاریخ
+                                    </div>
+                                    <div class="two wide column">
+                                        1394/09/12
+                                    </div>
+
+                                    <div class="one wide column text-font-size">
+                                        <i class="comment outline icon large" style="color: rebeccapurple" ></i>
+                                    </div>
+                                    <div class="one wide column">
+                                        125
+                                    </div>
+                                </div>
+                                <div class="ui divider"></div>
+                                <div class="ui grid">
+                                    <div class="sixteen wide column large-fontsize">
+                                        این دیوانگی‌ست که از همه گلهای رُز تنها بخاطر اینکه خار یکی از آنها در دستمان
+                                        فرو رفته متنفر باشیم که همه رویاهای خود را تنها بخاطر اینکه یکی از آنها به حقیقت
+                                        نپیوسته رها کنیم که امید خود را به همه چیز از دست بدهیم بخاطر اینکه در زندگی با
+                                        شکست مواجه شده ایم که از تلاش و کوشش دست بکشیم بخاطر اینکه یکی از کارهایمان بی
+                                        نتیجه مانده است که همه دستهایی را که برای دوستی بسوی ما دراز می شوند بخاطر اینکه
+                                        یکی از دوستانمان رابطه مان را زیر پا گذاشته است رد کنیم که هیچ عشقی را باور
+                                        نکنیم بخاطر اینکه در یکی از آنها به ما خیانت شده است که همه شانس ها را لگدمال
+                                        کنیم بخاطر اینکه در یکی از تلاشهایمان ناکام مانده ایم به امید اینکه در مسیر خود
+                                        هرگز دچار این دیوانگی ها نشویم و به یاد داشته باشیم که همیشه شانس های دیگر دوستی
+                                        های دیگر عشق های دیگر نیروهای دیگر و افق های بهتری هم هستند
+                                    </div>
+                                    <div class="twelve wide column"></div>
+                                    <div class="four wide column left aligned">
+                                        <div class="ui  labeled icon button tiny"
+                                             style="background-color: rebeccapurple;color: white"
+                                             id="add-Transaction-btn">
+                                            <i class="arrow left  icon"></i>
+                                            ادامه مطلب
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="ui segment">
+                                <div class="ui grid">
+                                    <div class="two wide column text-font-size">
+                                        عنوان پست
+                                    </div>
+                                    <div class="four wide column"></div>
+                                    <div class="two wide column text-font-size">
+                                        نام نویسنده
+                                    </div>
+                                    <div class="three wide column"></div>
+
+                                    <div class="one wide column text-font-size">
+                                        تاریخ
+                                    </div>
+                                    <div class="two wide column">
+                                        1394/09/12
+                                    </div>
+
+                                    <div class="one wide column text-font-size">
+                                        <i class="comment outline icon large" style="color: rebeccapurple" ></i>
+                                    </div>
+                                    <div class="one wide column">
+                                        125
+                                    </div>
+                                </div>
+                                <div class="ui divider"></div>
+                                <div class="ui grid">
+                                    <div class="sixteen wide column large-fontsize">
+                                        این دیوانگی‌ست که از همه گلهای رُز تنها بخاطر اینکه خار یکی از آنها در دستمان
+                                        فرو رفته متنفر باشیم که همه رویاهای خود را تنها بخاطر اینکه یکی از آنها به حقیقت
+                                        نپیوسته رها کنیم که امید خود را به همه چیز از دست بدهیم بخاطر اینکه در زندگی با
+                                        شکست مواجه شده ایم که از تلاش و کوشش دست بکشیم بخاطر اینکه یکی از کارهایمان بی
+                                        نتیجه مانده است که همه دستهایی را که برای دوستی بسوی ما دراز می شوند بخاطر اینکه
+                                        یکی از دوستانمان رابطه مان را زیر پا گذاشته است رد کنیم که هیچ عشقی را باور
+                                        نکنیم بخاطر اینکه در یکی از آنها به ما خیانت شده است که همه شانس ها را لگدمال
+                                        کنیم بخاطر اینکه در یکی از تلاشهایمان ناکام مانده ایم به امید اینکه در مسیر خود
+                                        هرگز دچار این دیوانگی ها نشویم و به یاد داشته باشیم که همیشه شانس های دیگر دوستی
+                                        های دیگر عشق های دیگر نیروهای دیگر و افق های بهتری هم هستند
+                                    </div>
+                                    <div class="twelve wide column"></div>
+                                    <div class="four wide column left aligned">
+                                        <div class="ui  labeled icon button tiny"
+                                             style="background-color: rebeccapurple;color: white"
+                                             id="add-Transaction-btn">
+                                            <i class="arrow left  icon"></i>
+                                            ادامه مطلب
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="ui segment">
+                                <div class="ui grid">
+                                    <div class="two wide column text-font-size">
+                                        عنوان پست
+                                    </div>
+                                    <div class="four wide column"></div>
+                                    <div class="two wide column text-font-size">
+                                        نام نویسنده
+                                    </div>
+                                    <div class="three wide column"></div>
+
+                                    <div class="one wide column text-font-size">
+                                        تاریخ
+                                    </div>
+                                    <div class="two wide column">
+                                        1394/09/12
+                                    </div>
+
+                                    <div class="one wide column text-font-size">
+                                        <i class="comment outline icon large" style="color: rebeccapurple" ></i>
+                                    </div>
+                                    <div class="one wide column">
+                                        125
+                                    </div>
+                                </div>
+                                <div class="ui divider"></div>
+                                <div class="ui grid">
+                                    <div class="sixteen wide column large-fontsize">
+                                        این دیوانگی‌ست که از همه گلهای رُز تنها بخاطر اینکه خار یکی از آنها در دستمان
+                                        فرو رفته متنفر باشیم که همه رویاهای خود را تنها بخاطر اینکه یکی از آنها به حقیقت
+                                        نپیوسته رها کنیم که امید خود را به همه چیز از دست بدهیم بخاطر اینکه در زندگی با
+                                        شکست مواجه شده ایم که از تلاش و کوشش دست بکشیم بخاطر اینکه یکی از کارهایمان بی
+                                        نتیجه مانده است که همه دستهایی را که برای دوستی بسوی ما دراز می شوند بخاطر اینکه
+                                        یکی از دوستانمان رابطه مان را زیر پا گذاشته است رد کنیم که هیچ عشقی را باور
+                                        نکنیم بخاطر اینکه در یکی از آنها به ما خیانت شده است که همه شانس ها را لگدمال
+                                        کنیم بخاطر اینکه در یکی از تلاشهایمان ناکام مانده ایم به امید اینکه در مسیر خود
+                                        هرگز دچار این دیوانگی ها نشویم و به یاد داشته باشیم که همیشه شانس های دیگر دوستی
+                                        های دیگر عشق های دیگر نیروهای دیگر و افق های بهتری هم هستند
+                                    </div>
+                                    <div class="twelve wide column"></div>
+                                    <div class="four wide column left aligned">
+                                        <div class="ui  labeled icon button tiny"
+                                             style="background-color: rebeccapurple;color: white"
+                                             id="add-Transaction-btn">
+                                            <i class="arrow left  icon"></i>
+                                            ادامه مطلب
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="one wide column"></div>
+                <div class="four wide column">
+                    <div class="ui grid">
+
+                        <div class="sixteen wide column">
+                            <div class="ui inverted vertical menu"
+                                 style="background-color:rebeccapurple; width: 100%; ">
+                                <a class="active item">
+                                    Home
+                                </a>
+                                <a class="item">
+                                    Messages
+                                </a>
+                                <a class="item">
+                                    Friends
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sixteen wide column">
+                            <div class="ui fluid category search">
+                                <div class="ui icon input" style="width: 100%">
+                                    <input class="prompt" placeholder="Search animals..." type="text">
+                                    <i class="search icon"></i>
+                                </div>
+                                <div class="results"></div>
+                            </div>
+                        </div>
+                        <div class="sixteen wide column">
+                            <div class="ui fluid vertical menu">
+                                <a class="item">Run</a>
+                                <a class="item">Walk</a>
+                                <a class="item active">Bike</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="one wide column"></div>
+            </div>
+        </div>
+    </div>
+    <div class="one wide column"></div>
+</div>
+
+
+
+<div class="ui modal "
+     style="margin-top: -240.5px;  !important;  !important;" id="add-post-modal">
+
+    <i class="close icon left aligned"></i>
+
+    <div class="ui equal width center aligned padded grid padded">
+
+        <div class="row" style="background-color: rebeccapurple ;">
+            <div class="column " style="font-size: xx-large;color: #FFFFFF;">
+                افزودن پست
+                <i class="add circular icon small"></i>
+            </div>
+
+
+        </div>
+    </div>
+    <div></div>
+
+
+    <div class=" ui content right aligned">
+        <div class="header ui content ui form right aligned">
+            <div class="field">
+
+                <div class="ui grid">
+
+                    <div class="two wide column right aligned" style="padding-top: 25px;">
+                        <label>
+                            عنوان پست
+                        </label></div>
+                    <div class="five wide column right aligned">
+                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value="">
+                    </div>
+                    <div class="two wide column"></div>
+
+                </div>
+
+                <div class="ui grid">
+                    <div class="ui form" style="width: 100%">
+                        <div class="field">
+                            <label>
+                                متن پست
+                            </label>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui grid">
+                    <div class="five wide column">
+دسته بندی ها
+                    </div>
+                    <div class="sixteen wide column">
+                        <div class="ui form">
+                            <div class="inline fields">
+
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input name="frequency" checked="checked" type="radio">
+                                        <label>
+                                            خبری
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input name="frequency" type="radio">
+                                        <label>
+                                            سیاسی
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input name="frequency" type="radio">
+                                        <label>
+                                            علمی
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input name="frequency" type="radio">
+                                        <label>
+                                            شعر
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="actions center aligned">
+        <div class="ui grid">
+            <div class="six wide column center aligned">
+                <button class="positive ui button big">
+                    ایجاد
+                </button>
+            </div>
+            <div class="four wide column"></div>
+            <div class="six wide column center aligned">
+                <button class="negative ui button big cancel">
+                    لغو
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

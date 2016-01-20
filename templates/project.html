@@ -10,6 +10,34 @@
 {% block content %}
 
 
+<div class="ui large secondary fixed white inverted menu fluid four item" id="top_nav"
+     style="background-color: rgba(38, 77, 89, 0.84);">
+
+
+    <a class="item left" href="http://127.0.0.1:8000/account/logout/"> <i
+            class="icon inverted circular green sign out"></i>
+            <span class="tahoma">
+خروج
+        </span>
+    </a>
+
+    <a class="item left" href="http://127.0.0.1:8000/account/profile/"> <i class="icon inverted circular teal user"></i>
+        <span class="tahoma">
+حساب کاربری من
+        </span>
+    </a>
+
+
+    <a class="item right" href="./پردازش رایانه کرمان PRK_files/پردازش رایانه کرمان PRK.html"> <i
+            class="icon inverted circular teal home"></i>
+        <span class="tahoma">
+                    خانه
+        </span>
+    </a>
+
+</div>
+
+
 <div class=" ui grid sixteen column  padded ">
     <div class=" six wide column center aligned">
 
@@ -44,6 +72,7 @@
 
 
 </div>
+<div style="border: 5px solid black;height: 5px; width: 100%;margin-top: 20px;"></div>
 <div class="ui grid padded ">
     <div class="twelve wide column">
         <div class="ui grid padded">
@@ -349,12 +378,12 @@
             <div class="sixteen wide column">
                 <div class="ui segment seg-slider">
                     <div class="ui grid center aligned">
-                        <div class="one wide column">
+                        <div class="two wide column">
                             <i class="arrow circle right icon huge slide-icon-right slider-operation-right"></i>
                         </div>
 
 
-                        <div class="fourteen wide column">
+                        <div class="twelve wide column">
                             <div class="slider slider-opreration">
                                 <div class=" center aligned slider-item">
                                     <img class="ui circular image center-margin"
@@ -388,7 +417,7 @@
                             </div>
 
                         </div>
-                        <div class="one wide column">
+                        <div class="two wide column directionltr">
                             <i class="arrow circle left icon huge slide-icon-left slider-operation-left "></i>
                         </div>
                     </div>
@@ -441,17 +470,19 @@
                     </div>
                 </div>
             </div>
-            <div class="ui grid chat-bottom ">
+            <div class="ui grid chat-bottom padded">
                 <div class="eleven wide column left aligned">
-                    <textarea style="width: 250px;height: 50px;" class="directionrtl"></textarea>
+                    <textarea style="width: 100%; height: 50px;" class="directionrtl"></textarea>
                 </div>
                 <div class="five wide column right aligned">
-                    <button style="width: 93px; height: 50px;" class="positive ui button">send</button>
+                    <button style="width: 90%;height: 50px;" class="positive ui button">send</button>
                 </div>
-                <div class="sixteen wide column center aligned">
-                    <div class="ui green labeled icon button huge">
+                <div class="sixteen wide column center aligned padded">
+                    <div class="padded">
+                    <div class="ui green labeled icon button huge padded">
                         <i class="sign in icon"></i>
                         ورود به تالار
+                    </div>
                     </div>
                 </div>
             </div>

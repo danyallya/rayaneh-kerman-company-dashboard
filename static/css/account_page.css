@@ -1,0 +1,25 @@
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+.calculator-icon-margin-inmodal
+{
+    margin-right: -27px!important;
+    margin-top: 5px!important;
+}
+.checkbox-font-size
+{
+    font-size: x-large!important;
+}
+.checkbox1-item2
+{
+    padding-left: 63px!important;
+    margin-left: 3px!important;
+}
+.checkbox2-item2
+{
+    margin-left: 3px!important;
+}

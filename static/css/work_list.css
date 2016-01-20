@@ -1,0 +1,19 @@
+.text-font-size
+{
+    font-size: 30px;
+}
+.text-align
+{
+    text-align: center;
+}
+.directionrtl {
+    direction: rtl;
+}
+
+.directionltr {
+    direction: ltr;
+}
+.cursor
+{
+    cursor: pointer;
+}

@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+
+{% block extra_js %}
+     <script src="/static/js/account_page.js"></script>
+    {% endblock %}
+ {% block extra_css %}
+      <link rel="stylesheet" href="/static/css/account_page.css">
+    {% endblock %}
+
+{% block content %}
+
+<div class="ui grid sixteen column padded">
+    <div class=" sixteen wide column ">
+        <div class="ui segment">
+        <div class="ui grid sixteen column padded">
+            <div class=" four wide column ">
+                <div class="ui equal width center aligned padded grid padded">
+
+                    <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                        <div class="column">
+                            حساب رسالت جهاد
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class=" eight wide column "></div>
+                    <div class=" four wide column center aligned">
+                        <div class="ui  labeled icon button huge" style="background-color: rebeccapurple;color: white" id="add-Transaction-btn">
+                            <i class="add circle icon"></i>
+ایجاد تراکنش جدید
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class=" sixteen wide column ">
+        <table class="ui striped sortable celled table center aligned ">
+            <thead>
+            <tr>
+                <th>
+                    ردیف
+                </th>
+                <th>
+                    تاریخ
+                </th>
+                <th>
+                    شماره سند
+                </th>
+                <th>
+                    شرح
+                </th>
+                <th>
+                    برداشت
+                </th>
+                <th>
+                    واریز
+                </th>
+                <th>
+                    مانده
+                </th>
+                <th>
+                    برچسب ها
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>94/08/17</td>
+                <td>50</td>
+                <td>
+                    ریختن حقوق کارکنان
+                </td>
+                <td>2/000/000</td>
+                <td>0</td>
+
+                <td>29.000.000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>94/08/17</td>
+                <td>50</td>
+                <td>
+                    ریختن حقوق کارکنان
+                </td>
+                <td>2/000/000</td>
+                <td>0</td>
+
+                <td>29.000.000</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>94/08/17</td>
+                <td>50</td>
+                <td>
+                    ریختن حقوق کارکنان
+                </td>
+                <td>2/000/000</td>
+                <td>0</td>
+
+                <td>29.000.000</td>
+                <td></td>
+            </tr>
+
+
+
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
+
+<div class="ui modal" style="width: 800px !important;margin-top: -212.5px;" id="Transaction-modal">
+
+    <i class="close icon left aligned"></i>
+
+    <div class="ui equal width center aligned padded grid padded">
+
+        <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+            <div class="column " style="font-size: xx-large">
+                تراکنش شماره 10
+            </div>
+        </div>
+    </div>
+    <div></div>
+
+
+    <div class=" ui content right aligned">
+        <div class="header ui content ui form right aligned">
+            <div class="field">
+                <div class="ui grid">
+                    <div class="four wide column center aligned">
+                        <div class="ui segment">
+                            <div class="ui form">
+                                <div class="grouped fields">
+
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input name="example1" checked="checked" type="radio">
+                                            <label class="checkbox-font-size">
+                                                برداشت
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input name="example1" type="radio">
+                                            <label class="checkbox-font-size checkbox1-item2">
+                                                واریز
+                                            </label>
+                                        </div>
+                                    </div></div>
+                            </div>
+                        </div>
+
+                </div>
+                    <div class="four wide column center aligned">
+                        <div class="ui segment">
+                            <div class="ui form">
+                                <div class="grouped fields">
+
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input name="example2" checked="checked" type="radio">
+                                            <label class="checkbox-font-size">
+حقوق
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input name="example2" type="radio">
+                                            <label class="checkbox-font-size checkbox2-item2">
+تنخواه
+                                            </label>
+                                        </div>
+                                    </div></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+                <div class="ui grid">
+                    <div class="one wide column right aligned" style="padding-top: 35px;">
+                        <label>
+                            شرح
+                        </label></div>
+                    <div class="seven wide column right aligned">
+                        <textarea rows="2" class="directionrtl" ></textarea>
+                    </div>
+                    <div class="one wide column"></div>
+                    <div class="two wide column left aligned" style="padding-top: 25px;">
+                        <label>
+شماره سند
+                        </label></div>
+                    <div class="five wide column center aligned">
+                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
+                               >
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="two wide column right aligned" style="padding-top: 25px;">
+                        <label>
+                            تاریخ
+                        </label></div>
+                    <div class="six wide column right aligned">
+                        <div class="ui grid ">
+                            <div class="twelve wide column left aligned">
+                        <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                               value=""></div>
+                            <div class="four wide column right aligned directionltr">
+                                <i class="calendar icon big teal calculator-icon-margin-inmodal"></i>
+                            </div>
+                    </div>
+                </div>
+                    <div class="three wide column left aligned" style="padding-top: 25px;">
+                        <label>
+                            مبلغ
+                        </label></div>
+                    <div class="five wide column right aligned">
+                        <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                               value="">
+                    </div>
+                </div>
+                <div class="ui grid">
+                    <div class="two wide column right aligned" style="padding-top: 25px;">
+                        <label>
+برچسب
+                        </label></div>
+                    <div class="six wide column right aligned">
+                        <div class="ui grid ">
+                            <div class="twelve wide column left aligned">
+                                <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                       value=""></div>
+                            <div class="four wide column right aligned directionltr">
+                                <i class="add icon big teal calculator-icon-margin-inmodal"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three wide column left aligned" style="padding-top: 25px;">
+                        <label>
+                            شخص
+                        </label></div>
+                    <div class="five wide column right aligned">
+                        <div class="ui grid ">
+                            <div class="twelve wide column left aligned">
+                                <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                       value=""></div>
+                            <div class="four wide column right aligned directionltr">
+                                <i class="add icon big teal calculator-icon-margin-inmodal"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="actions center aligned">
+        <div class="ui grid">
+            <div class="six wide column center aligned">
+                <button class="positive ui button big">
+                    ایجاد
+                </button>
+            </div>
+            <div class="four wide column"></div>
+            <div class="six wide column center aligned">
+                <button class="negative ui button big cancel">
+                    لغو
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

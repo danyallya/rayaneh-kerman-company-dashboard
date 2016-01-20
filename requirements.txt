@@ -1,6 +1,7 @@
-django
+django<1.9
 django-autoslug
 django-grappelli
 Pillow
 django-model-utils
 pymysql
+django-easy-select2

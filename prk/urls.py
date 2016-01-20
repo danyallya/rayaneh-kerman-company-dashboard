@@ -30,7 +30,15 @@ urlpatterns = [
     url(r'^my_idea/$', 'home.views.my_idea', name="my_idea"),
     url(r'^mahsool/$', 'home.views.mahsool', name="mahsool"),
     url(r'^list_mahsool/$', 'home.views.list_mahsool', name="list_mahsool"),
+    url(r'^work_page/$', 'home.views.work_page', name="work_page"),
+    url(r'^work_list/$', 'home.views.work_list', name="work_list"),
     url(r'^project/$', 'home.views.project', name="project"),
+    url(r'^account_list/$', 'home.views.account_list', name="account_list"),
+    url(r'^account_page/$', 'home.views.account_page', name="account_page"),
+    url(r'^post_list/$', 'home.views.post_list', name='post_list'),
+    url(r'^post_page/$', 'home.views.post_page', name='post_page'),
+    url(r'^talk/$', 'home.views.talk', name='talk'),
+    url(r'^my_money/$', 'home.views.my_money', name='my_money'),
 
     # url(r'^admin/prk_files/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS

@@ -2,9 +2,7 @@
 
 }
 
-.lefttable1 {
-    padding: 10px 130px !important;
-}
+
 
 .chat-padding {
     padding-top: 25px !important;
@@ -76,11 +74,9 @@
 .slide-icon-right {
     margin-top: 70px !important;
     cursor: pointer;
-    margin-right: -17px!important;
 }
 .slide-icon-left
 {
-    padding-left: 18px!important;
     margin-top: 70px !important;
     cursor: pointer;
 }
