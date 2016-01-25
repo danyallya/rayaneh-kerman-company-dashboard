@@ -28,6 +28,7 @@ def idea_list(request):
     return render(request, 'idea/list_idea.html', {'ideas': ideas, 'form': form})
 
 
+@login_required
 def idea_page(request, idea_id):
     idea = get_object_or_404(Idea, id=idea_id)
 

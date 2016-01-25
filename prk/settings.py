@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'utils',
     'pm',
     'idea',
+    'money',
 
 )
 

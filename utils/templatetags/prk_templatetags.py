@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
+import textwrap
 from django import template
 
 from utils.calverter import gregorian_to_jalali
-
 
 __author__ = 'M.Y'
 
@@ -39,3 +39,9 @@ def st_date(date):
     if not date:
         return ''
     return '-'.join([str(x) for x in [date.year, date.month, date.day]])
+
+
+@register.filter
+def price(val):
+    val = str(val)
+    return '،'.join(textwrap.wrap(val[::-1], 3))[::-1]

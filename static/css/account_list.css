@@ -1,7 +1,7 @@
-.box-padding
-{
-    padding: 50px!important;
+.box-padding {
+    padding: 50px !important;
 }
+
 .directionrtl {
     direction: rtl;
 }
@@ -9,25 +9,31 @@
 .directionltr {
     direction: ltr;
 }
-.cursor
-{
+
+.cursor {
     cursor: pointer;
-}.directionrtl {
-     direction: rtl;
- }
+}
+
+.directionrtl {
+    direction: rtl;
+}
 
 .directionltr {
     direction: ltr;
 }
-.cursor
-{
+
+.cursor {
     cursor: pointer;
 }
-.box-header-font-size
-{
+
+.box-header-font-size {
     font-size: xx-large;
 }
-.text-align
-{
+
+.text-align {
     text-align: center;
+}
+
+.bank-item {
+    display: block !important;
 }

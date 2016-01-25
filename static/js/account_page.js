@@ -6,13 +6,14 @@ $(document).ready(function () {
         $('#Transaction-modal')
             .modal('show')
         ;
-    })
+    });
+
     $('.cancel').click(function () {
 
         $('#Transaction-modal')
             .modal('hide')
         ;
-    })
+    });
 
 
-})
+});

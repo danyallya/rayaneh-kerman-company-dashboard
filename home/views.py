@@ -67,11 +67,11 @@ def work_page(request):
 
 
 def account_list(request):
-    return render_to_response('account_list.html')
+    return render_to_response('money/account_list.html')
 
 
 def account_page(request):
-    return render_to_response('account_page.html')
+    return render_to_response('money/account_page.html')
 
 
 def post_list(request):
@@ -91,4 +91,4 @@ def work_list(request):
 
 
 def my_money(request):
-    return render_to_response('my_money.html')
+    return render_to_response('money/my_money.html')
