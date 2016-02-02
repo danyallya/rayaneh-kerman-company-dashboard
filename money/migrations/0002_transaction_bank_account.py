@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='transaction',
             name='bank_account',
-            field=models.ForeignKey(related_name='transactions', default=0, to='money.BankAccount'),
+            field=models.ForeignKey(related_name='transactions', default=None, to='money.BankAccount'),
             preserve_default=False,
         ),
     ]
