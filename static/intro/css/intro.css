@@ -888,7 +888,7 @@ table {
 /*contact*/
 .contact {
     background-color: #2CC185;
-    height: 520px;
+    height: 550px;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -907,11 +907,18 @@ table {
 .contact-box {
     overflow: hidden;
     width: 80%;
-    height: 400px;
+    height: 372px;
     margin-top: 110px;
 
     background-color: #2CC185;
     margin-right: 10%;
+}
+
+#direct-contact {
+    text-align: center;
+    color: white;
+    font-family: tahoma, sans-serif;
+    font-size: 14px;
 }
 
 .name {

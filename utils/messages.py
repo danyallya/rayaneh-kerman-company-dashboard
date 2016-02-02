@@ -176,5 +176,6 @@ class ContactEmail(threading.Thread):
             msg.attach_alternative(message, "text/html")
             msg.send()
 
-        except:
+        except Exception as e:
+            print(e)
             pass
