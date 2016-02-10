@@ -12,8 +12,8 @@ __author__ = 'M.Y'
 
 
 class MessageServices(threading.Thread):
-    from_email = u'fanoos.irfa@gmail.com'
-    admin_email = u'fanoos.irfa@gmail.com'
+    from_email = u'prkgroup.ir@gmail.com'
+    admin_email = u'prkgroup.ir@gmail.com'
 
     @staticmethod
     def send_forget_password(email):
@@ -176,5 +176,6 @@ class ContactEmail(threading.Thread):
             msg.attach_alternative(message, "text/html")
             msg.send()
 
-        except:
+        except Exception as e:
+            print(e)
             pass

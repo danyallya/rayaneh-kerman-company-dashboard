@@ -9,7 +9,7 @@ class Named(models.Model):
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -19,7 +19,7 @@ class Titled(models.Model):
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -36,7 +36,7 @@ class BaseModel(Titled, LogModel):
         abstract = True
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def update(self):
         pass

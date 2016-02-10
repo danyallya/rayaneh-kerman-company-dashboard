@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load prk_templatetags %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/css/account_list.css">
+{% endblock %}
+
+{% block extra_js %}
+    <script src="/static/js/account_list.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="ui grid sixteen column padded">
+
+        <div class=" one wide column "></div>
+
+        <div class=" six wide column center aligned box-padding">
+            <div class="ui segment  ">
+                <div class="ui equal width center aligned padded grid padded">
+
+                    <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                        <div class="column box-header-font-size">
+                            حساب ها
+                        </div>
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                <div class="ui grid sixteen column">
+                    <div class=" sixteen wide column center aligned ">
+                        <div class="ui teal labeled icon button huge" id="add-account-btn">
+                            <i class="add circle icon"></i>
+                            ایجاد حساب
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui divider"></div>
+
+                {% for bank in banks %}
+                    <div class="ui grid sixteen column">
+                        <div class=" sixteen wide column center aligned ">
+                            <a class="ui teal center aligned button huge bank-item"
+                               href="{% url "bank_page" bank.id %}">
+                                {{ bank }}
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class=" two wide column "></div>
+
+        <div class=" six wide column center aligned box-padding">
+            <div class="ui segment  ">
+                <div class="ui equal width center aligned padded grid padded">
+
+                    <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                        <div class="column box-header-font-size">
+                            آخرین تراکنش ها
+                        </div>
+                    </div>
+                </div>
+                <div class="ui divider"></div>
+                {% for trans in last_trans %}
+                    <div class="ui grid sixteen column cursor" id="Transaction2-btn">
+                        <div class=" seven wide column center aligned ">
+                            <a class="ui teal image label ">
+                                مبلغ :
+                                {{ trans.amount|price }}
+                                {#                            <div class="detail">#}
+                                {#                            </div>#}
+                            </a>
+                        </div>
+                        <div class=" two wide column center aligned ">
+                            <div class="ui label  teal ">
+
+                                <a class="detail" style="margin-left: 0px!important;">
+                                    {{ trans.get_pay_type_display }}
+                                </a>
+                            </div>
+                        </div>
+                        <div class=" seven wide column left aligned ">
+                            <div class="ui label  teal ">
+                                <i class="calendar icon"></i>
+                                {{ trans.date|to_jalali }}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui divider"></div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class=" one wide column "></div>
+
+    </div>
+
+
+
+    <div class="ui modal" style="width: 400px !important;margin-top: -212.5px;" id="add-account-modal">
+
+        <i class="close icon left aligned"></i>
+
+        <div class="ui equal width center aligned padded grid padded">
+
+            <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                <div class="column " style="font-size: xx-large">
+                    ایجاد حساب جدید
+                </div>
+            </div>
+        </div>
+        <div></div>
+
+
+        <div class=" ui content right aligned">
+            <form class="header ui content ui form right aligned" method="post" action="">
+                {% csrf_token %}
+                <div class="field">
+                    <div class="ui grid">
+                        <div class="five wide column center aligned" style="padding-top: 25px;">
+                            <label>
+                                نام حساب
+                            </label>
+                        </div>
+                        <div class="eleven wide column center aligned">
+                            {{ form.title }}
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="five wide column center aligned" style="padding-top: 25px;">
+                            <label>
+                                شماره حساب
+                            </label>
+                        </div>
+                        <div class="eleven wide column center aligned">
+                            {{ form.account_num }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions center aligned">
+                    <div class="ui grid">
+                        <div class="six wide column center aligned">
+                            <button class="positive ui button big" type="submit">
+                                ایجاد
+                            </button>
+                        </div>
+                        <div class="four wide column"></div>
+                        <div class="six wide column center aligned">
+                            <button class="negative ui button big cancel">
+                                لغو
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="ui modal" style="width: 600px !important;margin-top: -212.5px;" id="Transaction1-modal">
+
+        <i class="close icon left aligned"></i>
+
+        <div class="ui equal width center aligned padded grid padded">
+
+            <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                <div class="column " style="font-size: xx-large">
+                    تراکنش شماره 10
+                </div>
+            </div>
+        </div>
+        <div></div>
+
+
+        <div class=" ui content right aligned">
+            <div class="header ui content ui form right aligned">
+                <div class="field">
+                    <div class="ui grid">
+                        <div class="two wide column right aligned" style="padding-top: 25px;">
+                            <label>
+                                مبلغ
+                            </label></div>
+                        <div class="six wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="250/000" readonly>
+                        </div>
+                        <div class="four wide column"></div>
+                        <div class="four wide column center aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="واریز" readonly>
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="two wide column right aligned" style="padding-top: 25px;">
+                            <label>
+                                تاریخ
+                            </label></div>
+                        <div class="six wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="1394/09/12" readonly>
+                        </div>
+                        <div class="two wide column"></div>
+                        <div class="two wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                بانک
+                            </label></div>
+                        <div class="four wide column center aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="ملت" readonly>
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="two wide column right aligned" style="padding-top: 35px;">
+                            <label>
+                                شرح
+                            </label></div>
+                        <div class="fourteen wide column right aligned">
+                            <textarea rows="2" class="directionrtl" readonly></textarea>
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="one wide column"></div>
+                        <div class="six wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                شخص واریز/برداشت کننده
+                            </label></div>
+                        <div class="eight wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="دانیال یاشیخ اکبری" readonly>
+                        </div>
+                        <div class="one wide column"></div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="actions center aligned">
+            <div class="ui grid">
+
+                <div class="sixteen wide column center aligned">
+                    <button class="negative ui button big cancel">
+                        بستن
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
