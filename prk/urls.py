@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^idea/', include('idea.urls')),
     url(r'^fi/', include('money.urls')),
     url(r'^pm/', include('pm.urls')),
+    url(r'^apps/', include('intro.urls')),
     url(r'^home/$', 'home.views.index', name='index'),
     url(r'^my_idea/$', 'home.views.my_idea', name="my_idea"),
     url(r'^mahsool/$', 'home.views.mahsool', name="mahsool"),
