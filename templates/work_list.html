@@ -1,262 +1,266 @@
 {% extends 'base.html' %}
 
 {% block extra_js %}
-     <script src="/static/js/work_list.js"></script>
-    {% endblock %}
- {% block extra_css %}
-      <link rel="stylesheet" href="/static/css/work_list.css">
-    {% endblock %}
+    <script src="/static/js/work_list.js"></script>
+{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="/static/css/work_list.css">
+{% endblock %}
 
 {% block content %}
-<div class="ui grid">
-    <div class="two wide column"></div>
-    <div class="twelve wide column">
-        <div class="ui segment">
-            <div class="ui grid">
-                <div class="four wide column">
-                    <div class="ui equal width center aligned padded grid padded">
+    <div class="ui grid">
+        <div class="two wide column"></div>
+        <div class="twelve wide column">
+            <div class="ui segment">
+                <div class="ui grid">
+                    <div class="four wide column">
+                        <div class="ui equal width center aligned padded grid padded">
 
-                        <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
-                            <div class="column text-font-size">
-                                کار ها
+                            <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                                <div class="column text-font-size">
+                                    کار ها
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="eight wide column"></div>
-                <div class="four wide column">
+                    <div class="eight wide column"></div>
+                    <div class="four wide column">
 
-                    <div class="ui  labeled icon button huge"
-                         style="background-color: rebeccapurple;color: white;width: 100%;" id="add-work-btn">
-                        <i class="add circle icon"></i>
-                        ایجاد کار جدید
-                    </div>
+                        <div class="ui  labeled icon button huge"
+                             style="background-color: rebeccapurple;color: white;width: 100%;" id="add-work-btn">
+                            <i class="add circle icon"></i>
+                            ایجاد کار جدید
+                        </div>
 
-                </div>
-            </div>
-            <div class="ui divider"></div>
-            <div class="ui segment cursor" id="work1">
-                <div class="ui grid">
-                    <div class="two wide column right aligned text-font-size">
-                        نام کار
-                    </div>
-                    <div class="three wide column"></div>
-                    <div class="two wide column text-font-size">
-                        نام پروژه
-                    </div>
-                    <div class="four wide column"></div>
-                    <div class="three wide column left aligned text-font-size">
-تاریخ ایجاد کار
-                    </div>
-                    <div class="two wide column text-font-size">
-                        94/08/12
                     </div>
                 </div>
-                <div class="ui grid">
-                    <div class="two wide column right aligned text-font-size">
-مسئول اجرا
-                    </div>
-                    <div class="three wide column"></div>
-                    <div class="three wide column text-font-size">
-درصد اجرای کار
-                    </div>
-                    <div class="three wide column"></div>
-                    <div class="three wide column left aligned text-font-size">
-تاریخ انقضا کار
-                    </div>
-                    <div class="two wide column text-font-size">
-                        94/08/12
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="two wide column"></div>
-</div>
-
-
-<div class="ui modal "
-     style="margin-top: -240.5px; width: 700px !important;  !important;" id="work-modal">
-
-    <i class="close icon left aligned"></i>
-
-    <div class="ui equal width center aligned padded grid padded">
-
-        <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
-            <div class="column " style="font-size: xx-large">
-                اطلاعات کار
-            </div>
-        </div>
-    </div>
-    <div></div>
-
-
-    <div class=" ui content right aligned">
-        <div class="header ui content ui form right aligned">
-            <div class="field">
-                <div class="ui grid">
-                    <div class="two wide column right aligned" style="padding-top: 25px;">
-                        <label>
+                <div class="ui divider"></div>
+                <div class="ui segment cursor" id="work1">
+                    <div class="ui grid">
+                        <div class="two wide column right aligned text-font-size">
                             نام کار
-                        </label></div>
-                    <div class="five wide column right aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
-                               readonly>
-                    </div>
-                    <div class="one wide column"></div>
-                    <div class="three wide column left aligned" style="padding-top: 25px;">
-                        <label>
+                        </div>
+                        <div class="three wide column"></div>
+                        <div class="two wide column text-font-size">
                             نام پروژه
-                        </label></div>
-                    <div class="five wide column center aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value="ملت"
-                               readonly="">
-                    </div>
-                </div>
-                <div class="ui grid">
-                    <div class="three wide column right aligned" style="padding-top: 25px;">
-                        <label>
-تاریخ ایجاد کار
-                        </label></div>
-                    <div class="four wide column right aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align"
-                               value="1394/09/12" readonly="">
-                    </div>
-                    <div class="two wide column"></div>
-                    <div class="three wide column left aligned" style="padding-top: 25px;">
-                        <label>
-تاریخ انقضا
-                        </label></div>
-                    <div class="four wide column center aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value="1394/09/12"
-                               readonly="">
-                    </div>
-                </div>
-                <div class="ui grid">
-                    <div class="one wide column"></div>
-                    <div class="five wide column left aligned" style="padding-top: 25px;">
-                        <label>
-مدیر پروژه مربوط به کار
-                        </label></div>
-                    <div class="eight wide column right aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align"
-                               value="دانیال یاشیخ اکبری" readonly="" >
-                    </div>
-                    <div class="two wide column"></div>
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="actions center aligned">
-        <div class="ui grid">
-
-            <div class="sixteen wide column center aligned">
-                <button class="negative ui button big cancel">
-                    بستن
-                </button>
-            </div>
-
-        </div>
-    </div>
-
-</div>
-
-<div class="ui modal"
-     style="margin-top: -240.5px; width: 700px !important;  !important;" id="addwork-modal">
-
-    <i class="close icon left aligned"></i>
-
-    <div class="ui equal width center aligned padded grid padded">
-
-        <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
-            <div class="column " style="font-size: xx-large">
-کار جدید
-            </div>
-        </div>
-    </div>
-    <div></div>
-
-
-    <div class=" ui content right aligned">
-        <div class="header ui content ui form right aligned">
-            <div class="field">
-                <div class="ui grid">
-                    <div class="two wide column right aligned" style="padding-top: 25px;">
-                        <label>
-                            نام کار
-                        </label></div>
-                    <div class="five wide column right aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
-                               >
-                    </div>
-                    <div class="one wide column"></div>
-                    <div class="three wide column left aligned" style="padding-top: 25px;">
-                        <label>
-                            نام پروژه
-                        </label></div>
-                    <div class="five wide column center aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
-                             >
-                    </div>
-                </div>
-                <div class="ui grid">
-                    <div class="three wide column right aligned" style="padding-top: 25px;">
-                        <label>
+                        </div>
+                        <div class="four wide column"></div>
+                        <div class="three wide column left aligned text-font-size">
                             تاریخ ایجاد کار
-                        </label></div>
-                    <div class="four wide column right aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align"
-                               value="" >
+                        </div>
+                        <div class="two wide column text-font-size">
+                            94/08/12
+                        </div>
                     </div>
-                    <div class="two wide column"></div>
-                    <div class="three wide column left aligned" style="padding-top: 25px;">
-                        <label>
-                            تاریخ انقضا
-                        </label></div>
-                    <div class="four wide column center aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
-                               >
+                    <div class="ui grid">
+                        <div class="two wide column right aligned text-font-size">
+                            مسئول اجرا
+                        </div>
+                        <div class="three wide column"></div>
+                        <div class="three wide column text-font-size">
+                            درصد اجرای کار
+                        </div>
+                        <div class="three wide column"></div>
+                        <div class="three wide column left aligned text-font-size">
+                            تاریخ انقضا کار
+                        </div>
+                        <div class="two wide column text-font-size">
+                            94/08/12
+                        </div>
                     </div>
-                </div>
-                <div class="ui grid">
-                    <div class="one wide column"></div>
-                    <div class="five wide column left aligned" style="padding-top: 25px;">
-                        <label>
-                            مدیر پروژه مربوط به کار
-                        </label></div>
-                    <div class="eight wide column right aligned">
-                        <input name="first-name" placeholder="" type="text" class="directionltr text-align"
-                               value=""  >
-                    </div>
-                    <div class="two wide column"></div>
 
                 </div>
+
             </div>
-
-
         </div>
-    </div>
-    <div class="actions center aligned">
-        <div class="ui grid">
-            <div class="six wide column center aligned">
-                <button class="positive ui button big">
-                    ایجاد
-                </button>
-            </div>
-            <div class="four wide column"></div>
-            <div class="six wide column center aligned">
-                <button class="negative ui button big cancel">
-                    لغو
-                </button>
-            </div>
-
-        </div>
+        <div class="two wide column"></div>
     </div>
 
-</div>
+
+    <div class="ui modal "
+         style="margin-top: -240.5px; width: 700px !important;  !important;" id="work-modal">
+
+        <i class="close icon left aligned"></i>
+
+        <div class="ui equal width center aligned padded grid padded">
+
+            <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                <div class="column " style="font-size: xx-large">
+                    اطلاعات کار
+                </div>
+            </div>
+        </div>
+        <div></div>
+
+
+        <div class=" ui content right aligned">
+            <div class="header ui content ui form right aligned">
+                <div class="field">
+                    <div class="ui grid">
+                        <div class="two wide column right aligned" style="padding-top: 25px;">
+                            <label>
+                                نام کار
+                            </label></div>
+                        <div class="five wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
+                                   readonly>
+                        </div>
+                        <div class="one wide column"></div>
+                        <div class="three wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                نام پروژه
+                            </label></div>
+                        <div class="five wide column center aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="ملت"
+                                   readonly="">
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="three wide column right aligned" style="padding-top: 25px;">
+                            <label>
+                                تاریخ ایجاد کار
+                            </label></div>
+                        <div class="four wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="1394/09/12" readonly="">
+                        </div>
+                        <div class="two wide column"></div>
+                        <div class="three wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                تاریخ انقضا
+                            </label></div>
+                        <div class="four wide column center aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="1394/09/12"
+                                   readonly="">
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="one wide column"></div>
+                        <div class="five wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                مدیر پروژه مربوط به کار
+                            </label></div>
+                        <div class="eight wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="دانیال یاشیخ اکبری" readonly="">
+                        </div>
+                        <div class="two wide column"></div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="actions center aligned">
+            <div class="ui grid">
+
+                <div class="sixteen wide column center aligned">
+                    <button class="negative ui button big cancel">
+                        بستن
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ui modal"
+         style="margin-top: -240.5px; width: 700px !important;  !important;" id="addwork-modal">
+
+        <i class="close icon left aligned"></i>
+
+        <div class="ui equal width center aligned padded grid padded">
+
+            <div class="row" style="background-color: rebeccapurple ;color: #FFFFFF;">
+                <div class="column " style="font-size: xx-large">
+                    کار جدید
+                </div>
+            </div>
+
+        </div>
+
+        <div></div>
+
+        <div class=" ui content right aligned">
+            <form class="header ui content ui form right aligned" method="post" action="">
+                <div class="field">
+                    <div class="ui grid">
+                        <div class="two wide column right aligned" style="padding-top: 25px;">
+                            <label>
+                                نام کار
+                            </label></div>
+                        <div class="five wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
+                            >
+                        </div>
+                        <div class="one wide column"></div>
+                        <div class="three wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                نام پروژه
+                            </label></div>
+                        <div class="five wide column center aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
+                            >
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="three wide column right aligned" style="padding-top: 25px;">
+                            <label>
+                                تاریخ ایجاد کار
+                            </label></div>
+                        <div class="four wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="">
+                        </div>
+                        <div class="two wide column"></div>
+                        <div class="three wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                تاریخ انقضا
+                            </label></div>
+                        <div class="four wide column center aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align" value=""
+                            >
+                        </div>
+                    </div>
+                    <div class="ui grid">
+                        <div class="one wide column"></div>
+                        <div class="five wide column left aligned" style="padding-top: 25px;">
+                            <label>
+                                مدیر پروژه مربوط به کار
+                            </label></div>
+                        <div class="eight wide column right aligned">
+                            <input name="first-name" placeholder="" type="text" class="directionltr text-align"
+                                   value="">
+                        </div>
+                        <div class="two wide column"></div>
+
+                    </div>
+                </div>
+
+                <div class="actions center aligned">
+                    <div class="ui grid">
+                        <div class="six wide column center aligned">
+                            <button class="positive ui button big">
+                                ایجاد
+                            </button>
+                        </div>
+                        <div class="four wide column"></div>
+                        <div class="six wide column center aligned">
+                            <button class="negative ui button big cancel">
+                                لغو
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
 {% endblock %}

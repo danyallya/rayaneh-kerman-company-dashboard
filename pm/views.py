@@ -1,48 +1,14 @@
-from django import forms
 from django.contrib.auth.decorators import login_required
+
 from django.core.urlresolvers import reverse
 from django.db.models.aggregates import Sum
 from django.http.response import HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404
-import math
-
 from account.models import Account
+
 from account.permissions import PermissionController, TimesPermission
-from pm.models import TimeSpend, Project
-from utils.forms import BaseForm
-
-
-class TimeSpendForm(BaseForm):
-    class Meta:
-        model = TimeSpend
-        fields = ('project', 'time_spend', 'desc', 'due_date')
-
-    def __init__(self, *args, **kwargs):
-        super(TimeSpendForm, self).__init__(*args, **kwargs)
-        self.fields["due_date"].widget.attrs.update({'placeholder': u"مثال: 1394/04/13"})
-        self.fields["time_spend"] = forms.CharField(max_length=255)
-        self.fields["time_spend"].widget.attrs.update({'placeholder': u"مثال: 2.5 یا 2:30"})
-
-    def clean(self):
-        cd = super(TimeSpendForm, self).clean()
-        time_spend = cd.get('time_spend')
-        if time_spend:
-            try:
-                if ':' in time_spend:
-                    hour, minutes = time_spend.split(":")
-                    cd['time_spend'] = hour + "." + str(int(int(minutes) * 100 / 60))
-                else:
-                    float(time_spend)
-            except Exception:
-                self.errors['time_spend'] = self.error_class(["زمان وارد شده اشتباه است."])
-
-        return cd
-
-
-class ProjectForm(BaseForm):
-    class Meta:
-        model = Project
-        fields = ('title', 'responsible')
+from pm.forms import TimeSpendForm, ProjectForm, WorkItemForm
+from pm.models import TimeSpend, WorkItem
 
 
 @login_required
@@ -113,3 +79,24 @@ def delete_time(request, time_id):
     if obj.account_id == request.user.id:
         obj.delete()
     return HttpResponseRedirect(reverse('times'))
+
+
+@login_required
+def work_list(request):
+    # if not PermissionController.has_permission(request.user, TimesPermission):
+    #     return HttpResponseForbidden()
+
+    # ts = PermissionController.get_queryset(request.user, TimesPermission)
+    form = WorkItemForm()
+
+    if request.method == 'POST':
+        form = WorkItemForm(request.POST)
+        if form.is_valid():
+            obj = form.save()
+            obj.creator = request.user
+            obj.save()
+            form = WorkItemForm()
+
+    works = WorkItem.objects.filter()
+
+    return render(request, 'pm/times.html', {'works': works, 'form': form})
