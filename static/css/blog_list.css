@@ -1,0 +1,13 @@
+.segment-height
+{
+    height: 100px;
+}
+.font {
+    font-family: Nazanin, tahoma;
+    direction: rtl;
+    font-size: 18px;
+    text-align: justify;
+}
+.directionltr
+{
+direction: ltr}
