@@ -92,3 +92,7 @@ def work_list(request):
 
 def my_money(request):
     return render_to_response('money/my_money.html')
+
+
+def resume(request):
+    return render_to_response('apps/resume.html')

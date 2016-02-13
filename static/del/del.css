@@ -2,7 +2,10 @@
     font-family: "dast";
     src: url('../fonts/IRDastNevis.ttf') format('truetype');
 }
-
+@font-face {
+    font-family: "byekan";
+    src: url('../fonts/Yekan.ttf') format('truetype');
+}
 body {
     margin: 0;
     padding: 0;

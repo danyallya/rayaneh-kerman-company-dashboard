@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        sectionsColor: ['#2CA3C1', '#2CA3C1', '#2CA3C1', '#2CA3C1','#2CA3C1' ,'#327a9e','#327a9e','#327a9e'],
+        sectionsColor: ['#2CC185', '#2CC185', '#2CC185', '#2CC185','#2CC185' ,'#2CC185','#2CC185','#2CC185'],
         anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thpage','6thpage', 'lastpage','dsds'],
         menu: '#menu',
         navigation: true,
