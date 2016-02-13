@@ -494,6 +494,20 @@ display: block;
     display: block;
 
 }
+.logo-infinity{
+       background-image: url("/static/images/infinity.png");
+   width: 155px;
+    height: 137px;
+    margin: 0 auto;
+    display: block;
+}
+.logo-googeli{
+       background-image: url("/static/images/googeli.png");
+   width: 155px;
+    height: 137px;
+    margin: 0 auto;
+    display: block;
+}
 .logo-diba{
     background-image: url("/static/images/diba.png");
     width: 339px;
