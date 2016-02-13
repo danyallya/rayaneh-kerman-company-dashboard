@@ -1,0 +1,19 @@
+.drtl {
+    direction: rtl;
+}
+
+.animation
+{
+            -webkit-transition: all ease .8s;
+    -moz-transition: all ease .8s;
+    -ms-transition: all ease .8s;
+    -o-transition: all ease .8s;
+    transition: all ease .8s;
+}
+.post{
+    height: 60px;
+}
+.post:focus{
+    height: 100px;
+
+}

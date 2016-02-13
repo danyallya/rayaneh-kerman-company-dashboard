@@ -42,6 +42,8 @@ urlpatterns = [
     url(r'^talk/$', 'home.views.talk', name='talk'),
     url(r'^my_money/$', 'home.views.my_money', name='my_money'),
     url(r'^resume/$', 'home.views.resume', name='resume'),
+    url(r'^blog_list/$', 'home.views.blog_list', name='blog_list'),
+    url(r'^blog_page/$', 'home.views.blog_page', name="blog_page"),
 
     # url(r'^admin/prk_files/', include(site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS

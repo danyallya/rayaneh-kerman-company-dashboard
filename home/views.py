@@ -96,3 +96,9 @@ def my_money(request):
 
 def resume(request):
     return render_to_response('apps/resume.html')
+def blog_list(request):
+    return render_to_response('blog_list.html')
+
+
+def blog_page(request):
+    return render_to_response('blog_page.html')

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from pm.models import TimeSpend, Project
+from utils.admin import HardModelAdmin
+
+admin.site.register(TimeSpend, HardModelAdmin)
+
+admin.site.register(Project, HardModelAdmin)
