@@ -126,27 +126,27 @@ $(document).ready(function () {
     });
 
     $('#home-btn').click(function () {
-        $('body').animate({scrollTop: 0}, 1000);
+        $('html , body').animate({scrollTop: 0}, 1000);
 
     });
 
     $('#samples-btn, #scroll-samples-js').click(function () {
-        $('body').animate({scrollTop: xsamples - 65}, 1000);
+        $('html , body').animate({scrollTop: xsamples - 65}, 1000);
 
     });
     $('#members-btn , #scroll-members-js').click(function () {
-        $('body').animate({scrollTop: xmembers - 65}, 1200);
+        $('html , body').animate({scrollTop: xmembers - 65}, 1200);
 
     });
 
     $('#about-us-btn , #scroll-aboutus-js').click(function () {
-        $('body').animate({scrollTop: xabout - 65}, 1500);
+        $('html , body').animate({scrollTop: xabout - 65}, 1500);
 
     });
 
     $('#contact-us-btn , #scroll-contactus-js').click(function () {
         var x = $(document).height();
-        $('body').animate({scrollTop: x}, 2000);
+        $('html , body').animate({scrollTop: x}, 2000);
     });
 
 
