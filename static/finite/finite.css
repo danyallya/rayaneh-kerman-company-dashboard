@@ -3,6 +3,11 @@
     src: url('../fonts/IRDastNevis.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: "byekan";
+    src: url('../fonts/Yekan.ttf') format('truetype');
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -11,7 +16,11 @@ body {
 }
 
 input, button, textarea {
-    font-family: dast, 'Dosis', sans-serif;
+    font-family: byekan, 'Dosis', sans-serif;
+}
+
+.hidden {
+    display: none;
 }
 
 .display1 {
@@ -420,7 +429,7 @@ img {
     background-color: rgba(255, 255, 255, 0.55);
     width: 800px;
     margin: 0 auto;
-    height: 430px;
+    height: 460px;
 }
 
 .section8-box-text {

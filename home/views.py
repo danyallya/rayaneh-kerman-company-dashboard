@@ -11,12 +11,13 @@ def intro(request):
 
 
 def contact(request):
-    name = request.POST.get('n')
-    email = request.POST.get('e')
-    title = request.POST.get('t')
-    text = request.POST.get('te')
+    name = request.POST.get('n') or ''
+    email = request.POST.get('e') or ''
+    title = request.POST.get('t') or ''
+    text = request.POST.get('te') or ''
 
-    ContactEmail(name, email, title, text).start()
+    if name or email or title or text:
+        ContactEmail(name, email, title, text).start()
 
     return HttpResponse("OK")
 
@@ -96,6 +97,8 @@ def my_money(request):
 
 def resume(request):
     return render_to_response('apps/resume.html')
+
+
 def blog_list(request):
     return render_to_response('blog_list.html')
 

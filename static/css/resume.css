@@ -12,11 +12,20 @@ body {
     margin: 0;
     padding: 0;
     font-family: dast, 'Dosis', sans-serif;
+    direction: rtl;
 
 }
 
+a {
+    text-decoration: none;
+}
+
 input, button, textarea {
-    font-family: dast, 'Dosis', sans-serif;
+    font-family: byekan, 'Dosis', sans-serif;
+}
+
+.hidden {
+    display: none;
 }
 
 .display1 {
@@ -350,11 +359,9 @@ img {
 
 .section4-button {
     border: none;
-
     width: 330px;
     cursor: pointer;
     height: 41px;
-    background-color: white;
     border-radius: 5px;
     border-bottom: 2px solid #2CA3C1;
     margin-top: 30px;
@@ -415,11 +422,11 @@ h1 {
 }
 
 .prk-text {
-    width: 660px;
-    text-align: center;
-    font-size: 19px;
+    width: 850px;
+    font-size: 17px;
     margin: 0 auto;
-    color: wheat;
+    color: white;
+    text-align: center;
 }
 
 .empowerment {
@@ -475,7 +482,7 @@ h1 {
     width: 337px;
     height: 89px;
     margin: 0 auto;
-display: block;
+    display: block;
 }
 
 .logo-poshtiban {
@@ -486,7 +493,8 @@ display: block;
     display: block;
 
 }
-.logo-del{
+
+.logo-del {
     background-image: url("/static/images/del.png");
     width: 155px;
     height: 137px;
@@ -494,26 +502,30 @@ display: block;
     display: block;
 
 }
-.logo-infinity{
-       background-image: url("/static/images/infinity.png");
-   width: 155px;
+
+.logo-infinity {
+    background-image: url("/static/images/infinity.png");
+    width: 155px;
     height: 137px;
     margin: 0 auto;
     display: block;
 }
-.logo-googeli{
-       background-image: url("/static/images/googeli.png");
-   width: 155px;
+
+.logo-googeli {
+    background-image: url("/static/images/googeli.png");
+    width: 155px;
     height: 137px;
     margin: 0 auto;
     display: block;
 }
-.logo-diba{
+
+.logo-diba {
     background-image: url("/static/images/diba.png");
     width: 339px;
     height: 176px;
     margin: 0 auto;
 }
+
 .logo-text {
     color: white;
     text-align: center;

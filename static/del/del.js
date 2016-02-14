@@ -1,18 +1,16 @@
-
-
-$(document).ready(function() {
+$(document).ready(function () {
     $('#fullpage').fullpage({
-        sectionsColor: ['#2CC185', '#2CC185', '#2CC185', '#2CC185','#2CC185' ,'#2CC185','#2CC185','#2CC185'],
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage','5thpage','6thpage', 'lastpage','dsds'],
+        sectionsColor: ['#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185'],
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', 'lastpage', 'dsds', 'contact'],
         menu: '#menu',
         navigation: true,
         navigationPosition: 'right',
 
-        afterLoad: function(anchorLink, index){
+        afterLoad: function (anchorLink, index) {
 
 
             //section 1
-            if(anchorLink =='firstPage'){
+            if (anchorLink == 'firstPage') {
                 //moving the image
                 setTimeout(function () {
                     $('#section1').find('.intro').addClass("show");
@@ -22,7 +20,7 @@ $(document).ready(function() {
                 //    left: '0%.'
                 //}, 1500, 'easeOutExpo');
             }
-            if(anchorLink =='4thpage'){
+            if (anchorLink == '4thpage') {
                 //moving the image
                 setTimeout(function () {
                     $('#section3').find('.intro').addClass("show");
@@ -33,7 +31,7 @@ $(document).ready(function() {
                 //    left: '0%.'
                 //}, 1500, 'easeOutExpo');
             }
-            if(anchorLink =='5thpage'){
+            if (anchorLink == '5thpage') {
                 //moving the image
                 setTimeout(function () {
                     $('#section4').find('.intro').addClass("show");
@@ -45,7 +43,7 @@ $(document).ready(function() {
                 //    left: '0%.'
                 //}, 1500, 'easeOutExpo');
             }
-            if(anchorLink =='6thpage'){
+            if (anchorLink == '6thpage') {
                 //moving the image
                 setTimeout(function () {
                     $('#section5').find('.intro').addClass("show");
@@ -57,16 +55,64 @@ $(document).ready(function() {
                 //    left: '0%.'
                 //}, 1500, 'easeOutExpo');
             }
-            if(index == 3){
+            if (index == 3) {
                 $('#iphone3, #iphone2, #iphone4').addClass('active');
             }
-            else
-            {
+            else {
                 $('#iphone3, #iphone2, #iphone4').removeClass('active');
             }
-
 
         }
     });
 
+
+    //CONTACT
+
+    $('.send-btn').click(function () {
+        $.ajax({
+            type: 'POST',
+            url: '/contact/',
+            data: {
+                'e': $('#contact-email').val(),
+                'te': $('#contact-text').val()
+
+            },
+            success: function (msg) {
+                var res = msg.trim();
+
+                if (res == 'OK') {
+                    $('.contact.message').fadeIn();
+                    $('#contact-email').val('');
+                    $('#contact-text').val('');
+                }
+            }
+        });
+    });
+
 });
+
+$.ajaxSetup({
+    beforeSend: function (xhr, settings) {
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie != '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = jQuery.trim(cookies[i]);
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+            // Only send the token to relative URLs i.e. locally.
+            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+        }
+    }
+});
+
