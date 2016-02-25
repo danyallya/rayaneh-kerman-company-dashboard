@@ -1,46 +1,46 @@
 $(document).ready(function () {
-    var xsamples = $('.samples-header').offset().top;
-    var xmembers = $('.members-header').offset().top;
-    var xabout = $('.about-header').offset().top;
-    var xcontact = $('.contact-header').offset().top;
+    var xsamples = $('.samples').offset().top;
+    var xmembers = $('.members').offset().top;
+    var xabout = $('.about').offset().top;
+    var xcontact = $('.contact').offset().top;
 
     $(window).scroll(function (event) {
         var scrollheight = $(window).scrollTop();
-        if (scrollheight < xsamples - 66 && scrollheight > 0) {
+        if (scrollheight < xsamples - 50 && scrollheight > 0) {
 
-            $("#home-btn").addClass('tab-current');
-            $("#samples-btn").removeAttr('class');
-            $("#members-btn").removeAttr('class');
-            $("#about-us-btn").removeAttr('class');
-            $("#contact-us-btn").removeAttr('class');
+            $("#home-btn").addClass('active');
+            $("#samples-btn").removeClass('active');
+            $("#members-btn").removeClass('active');
+            $("#about-us-btn").removeClass('active');
+            $("#contact-us-btn").removeClass('active');
         }
-        else if (scrollheight < xmembers - 66 && scrollheight >= xsamples - 66) {
-            $("#samples-btn").addClass('tab-current');
-            $("#home-btn").removeAttr('class');
-            $("#members-btn").removeAttr('class');
-            $("#about-us-btn").removeAttr('class');
-            $("#contact-us-btn").removeAttr('class');
+        else if (scrollheight < xmembers - 50 && scrollheight >= xsamples - 50) {
+            $("#samples-btn").addClass('active');
+            $("#home-btn").removeClass('active');
+            $("#members-btn").removeClass('active');
+            $("#about-us-btn").removeClass('active');
+            $("#contact-us-btn").removeClass('active');
         }
-        else if (scrollheight < xabout - 66 && scrollheight >= xmembers - 66) {
-            $("#members-btn").addClass('tab-current');
-            $("#home-btn").removeAttr('class');
-            $("#samples-btn").removeAttr('class');
-            $("#about-us-btn").removeAttr('class');
-            $("#contact-us-btn").removeAttr('class');
+        else if (scrollheight < xabout - 50 && scrollheight >= xmembers - 50) {
+            $("#members-btn").addClass('active');
+            $("#home-btn").removeClass('active');
+            $("#samples-btn").removeClass('active');
+            $("#about-us-btn").removeClass('active');
+            $("#contact-us-btn").removeClass('active');
         }
-        else if (scrollheight <= xcontact - 65 && scrollheight >= xabout - 66) {
-            $("#about-us-btn").addClass('tab-current');
-            $("#home-btn").removeAttr('class');
-            $("#samples-btn").removeAttr('class');
-            $("#members-btn").removeAttr('class');
-            $("#contact-us-btn").removeAttr('class');
+        else if (scrollheight <= xcontact - 50 && scrollheight >= xabout - 50) {
+            $("#about-us-btn").addClass('active');
+            $("#home-btn").removeClass('active');
+            $("#samples-btn").removeClass('active');
+            $("#members-btn").removeClass('active');
+            $("#contact-us-btn").removeClass('active');
         }
-        else if (scrollheight < 3000 && scrollheight > xcontact - 65) {
-            $("#contact-us-btn").addClass('tab-current');
-            $("#home-btn").removeAttr('class');
-            $("#samples-btn").removeAttr('class');
-            $("#members-btn").removeAttr('class');
-            $("#about-us-btn").removeAttr('class');
+        else if (scrollheight < 5000 && scrollheight > xcontact - 50) {
+            $("#contact-us-btn").addClass('active');
+            $("#home-btn").removeClass('active');
+            $("#samples-btn").removeClass('active');
+            $("#members-btn").removeClass('active');
+            $("#about-us-btn").removeClass('active');
         }
     });
 
@@ -131,16 +131,16 @@ $(document).ready(function () {
     });
 
     $('#samples-btn, #scroll-samples-js').click(function () {
-        $('html , body').animate({scrollTop: xsamples - 65}, 1000);
+        $('html , body').animate({scrollTop: xsamples - 49}, 1000);
 
     });
     $('#members-btn , #scroll-members-js').click(function () {
-        $('html , body').animate({scrollTop: xmembers - 65}, 1200);
+        $('html , body').animate({scrollTop: xmembers - 49}, 1200);
 
     });
 
     $('#about-us-btn , #scroll-aboutus-js').click(function () {
-        $('html , body').animate({scrollTop: xabout - 65}, 1500);
+        $('html , body').animate({scrollTop: xabout - 49}, 1500);
 
     });
 
