@@ -162,20 +162,20 @@ header .header-items .active {
     background-image: url("../images/arrow-sample.png");
     width: 50px;
     height: 50px;
-    top: 42%;
+    top: 45%;
     cursor: pointer;
     background-position: 0 0;
-    right: 10%;
+    right: 20%;
 }
 
 .left-arrow {
     background-image: url("../images/arrow-sample.png");
     width: 50px;
     height: 50px;
-    top: 44%;
+    top: 45%;
     cursor: pointer;
     background-position: 0 0;
-    left: 10%;
+    left: 20%;
 }
 
 .left-arrow:hover {
@@ -206,9 +206,11 @@ header .header-items .active {
     width: 800px;
     height: 250px;
     overflow: hidden;
-    margin-top: 18%;
-    margin-right: 20%;
+    margin-top: 18%!important;
+    /*margin-right: 20%;*/
     white-space: nowrap;
+    font-size: 0;
+    margin: 0 auto;
 
 }
 
@@ -216,6 +218,7 @@ header .header-items .active {
     text-align: center;
     display: inline-block;
     text-decoration: none;
+    width: 200px;
 }
 
 .item-img-manzoom {

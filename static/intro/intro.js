@@ -107,21 +107,33 @@ $(document).ready(function () {
     //})
 
 
+    var flag = false;
+
     $('.slider-left').click(function () {
+        if (flag)
+            return;
 
-
+        flag = true;
         var $panel = $(this).parent().find('.slider-wrap');
 
-        $panel.animate({scrollLeft: $panel.scrollLeft() - 400}, 500);
+        $panel.animate({scrollLeft: $panel.scrollLeft() - 400}, 500, function () {
+            flag = false;
+        });
+
 
     });
     /* on right button click scroll to
      the next sibling of the current visible slide */
     $('.slider-right').click(function () {
+        if (flag)
+            return;
 
+        flag = true;
         var $panel = $(this).parent().find('.slider-wrap');
 
-        $panel.animate({scrollLeft: $panel.scrollLeft() + 400}, 500);
+        $panel.animate({scrollLeft: $panel.scrollLeft() + 400}, 500, function () {
+            flag = false;
+        });
 
     });
 
