@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#fullpage').fullpage({
-        sectionsColor: ['#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185', '#2CC185'],
+        sectionsColor: myarr,
         anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', 'lastpage', 'dsds', 'contact'],
         menu: '#menu',
         navigation: true,
