@@ -389,15 +389,16 @@ img {
 
 .bazzar
 {
-    width: 150px;
+    width: 190px;
     height: 50px;
     /*background-color: red;*/
     position: fixed;
     top: 85%;
     z-index: 2222;
     background-color: #00BCD4;
-    left: -100px;
+    left: -140px;
     cursor: pointer;
+    border-radius: 25px;
     -webkit-transition: all ease .3s;
     -moz-transition: all ease .3s;
     -ms-transition: all ease .3s;
@@ -406,7 +407,7 @@ img {
 }
 .bazzar:hover
 {
-    left: 0;
+    left: -30px;
 }
 .bazzar-text
 {

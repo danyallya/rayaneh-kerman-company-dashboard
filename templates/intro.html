@@ -15,6 +15,10 @@
     <link rel="stylesheet" type="text/css" href="/static/intro/css/intro.css?v=1.0.3"/>
 
     <link rel="stylesheet" type="text/css" href="/static/intro/css/tabstyles.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/waves-plugin/waves.min.css"/>
+    <script src="/static/waves-plugin/waves.min.js"></script>
+
+
     {#    <script src="/static/intro/modernizr.custom.js"></script>#}
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/intro/intro.js?v=1.0.3"></script>
@@ -28,7 +32,7 @@
 
 <header>
 
-    <div  class="header-items table">
+    <div class="header-items table">
         <div id="home-btn" class="right  header-item active ">
             <div>
                 خانه
@@ -41,7 +45,7 @@
         </div>
         <div id="members-btn" class="right header-item ">
             <div>
-اعضا
+                اعضا
             </div>
         </div>
         <div id="about-us-btn" class="right header-item ">
@@ -81,172 +85,204 @@
 <!--</div>-->
 <!--</div>-->
 <div class="samples page-item">
-    <div class="samples-header">
-        نمونه کارها
+    <div class="samples-header ">
+        <div class="float-box">
+            نمونه کارها
+
+        </div>
     </div>
     <div class="scrool-member">
-        <div id="scroll-members-js" class="scrool-img-members"></div>
-    </div>
-    <div class="slider-samples slider-wrap">
-        <a class="slider-item" href="http://www.manzoom.ir" target="_blank">
-            <img src="/static/intro/images/manzoom-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                منظوم
-            </div>
-        </a>
-        <a class="slider-item" href="/apps/finite/" target="_blank">
-            <img src="/static/intro/images/unlimite-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                بینهایت
-            </div>
-        </a>
-        <a class="slider-item" target="_blank" href="/apps/del/">
-            <img src="/static/intro/images/del-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                دلنوشته های محرم
-            </div>
-        </a>
-
-        <a class="slider-item" target="_blank" href="http://appyum.ir/ir.parkgroup.diba">
-            <img src="/static/intro/images/diba-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                دیبا
-            </div>
-        </a>
-        <a class="slider-item" target="_blank" href="">
-            <img src="/static/intro/images/amini-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                حاج احمد امینی
-            </div>
-        </a>
-
-        <div class="slider-item">
-            <img src="/static/intro/images/ramezan-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                لیله القدر
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/googli-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                گوگلی
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/ghotb-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                قطب سوم
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/zangi-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                حاج یونس زنگی آبادی
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/haram-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                هوای حرم
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/himalia-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                هیمالیا
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/boieyas-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                بوی یاس
-            </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/boiesib-logo.png" width="200" height="201">
-
-            <div class="item-text">
-                بوی سیب
-            </div>
+        <div class="float-box">
+            <div id="scroll-members-js" class="scrool-img-members"></div>
         </div>
     </div>
-    <div class="absolute mirror left-arrow slider-left"></div>
-    <div class="absolute right-arrow slider-right"></div>
+    <div class="slider table">
+        <div class="right slider-arrow-right table">
+            <div class=" right-arrow slider-right">
+                <div class="float-box"></div>
+            </div>
+
+        </div>
+        <div class=" right slider-samples slider-wrap ">
+            <a class="slider-item shadow" href="http://www.manzoom.ir" target="_blank">
+                    <img class=" flat-box-img shadow" src="/static/intro/images/manzoom-logo.png" width="" height="">
+                <div class="item-text">
+                    منظوم
+                </div>
+            </a>
+            <a class="slider-item" href="/apps/finite/" target="_blank">
+                <img class="flat-box-img" src="/static/intro/images/unlimite-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    بینهایت
+                </div>
+            </a>
+            <a class="slider-item" target="_blank" href="/apps/del/">
+                <img class="flat-box-img" src="/static/intro/images/del-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    دلنوشته های محرم
+                </div>
+            </a>
+
+            <a class="slider-item" target="_blank" href="http://appyum.ir/ir.parkgroup.diba">
+                <img src="/static/intro/images/diba-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    دیبا
+                </div>
+            </a>
+            <a class="slider-item" target="_blank" href="">
+                <img class="flat-box-img" src="/static/intro/images/amini-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    حاج احمد امینی
+                </div>
+            </a>
+
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/ramezan-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    لیله القدر
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/googli-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    گوگلی
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/ghotb-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    قطب سوم
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/zangi-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    حاج یونس زنگی آبادی
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/haram-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    هوای حرم
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/himalia-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    هیمالیا
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/boieyas-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    بوی یاس
+                </div>
+            </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/boiesib-logo.png" width="200" height="201">
+
+                <div class="item-text">
+                    بوی سیب
+                </div>
+            </div>
+        </div>
+        <div class=" right slider-arrow-left table">
+            <div class="left mirror left-arrow slider-left">
+                <div class="float-box"></div>
+            </div>
+
+        </div>
+    </div>
 </div>
 <div class="members page-item">
     <div class="members-header">
         اعضا
     </div>
     <div class="scrool-about">
-        <div id="scroll-aboutus-js" class="scrool-img-about"></div>
+        <div class="float-box shadow">
+            <div id="scroll-aboutus-js" class="scrool-img-about"></div>
+        </div>
     </div>
-    <div class="slider-samples slider-wrap">
-        <div class="slider-item">
-            <img src="/static/intro/images/m-chif.png" width="200" height="201">
+    <div class="slider table">
+        <div class="right slider-arrow-right table ">
 
-            <div class="item-text white">
-                محمد صالح
+            <div class=" right-arrow slider-right ">
+                <div class="float-box"></div>
             </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/d-member.png" width="200" height="201">
 
-            <div class="item-text white">
-                دانیال
+
+        </div>
+        <div class="right slider-samples slider-wrap">
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/m-chif.png" width="200" height="201">
+
+                <div class="item-text white">
+                    محمد صالح
+                </div>
             </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/m-member.png" width="200" height="201">
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/d-member.png" width="200" height="201">
 
-            <div class="item-text white">
-                مهدی
+                <div class="item-text white">
+                    دانیال
+                </div>
             </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/a-member.png" width="200" height="201">
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/m-member.png" width="200" height="201">
 
-            <div class="item-text white">
-                علی
+                <div class="item-text white">
+                    مهدی
+                </div>
             </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/dan-member.png" width="200" height="201">
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/a-member.png" width="200" height="201">
 
-            <div class="item-text white">
-                دانیال
+                <div class="item-text white">
+                    علی
+                </div>
             </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/r-member.png" width="200" height="201">
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/dan-member.png" width="200" height="201">
 
-            <div class="item-text white">
-                رامین
+                <div class="item-text white">
+                    دانیال
+                </div>
             </div>
-        </div>
-        <div class="slider-item">
-            <img src="/static/intro/images/amir-member.png" width="200" height="201">
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/r-member.png" width="200" height="201">
 
-            <div class="item-text white">
-                امیر
+                <div class="item-text white">
+                    رامین
+                </div>
             </div>
+            <div class="slider-item">
+                <img class="flat-box-img" src="/static/intro/images/amir-member.png" width="200" height="201">
+
+                <div class="item-text white">
+                    امیر
+                </div>
+            </div>
+
+
         </div>
+        <div class="right slider-arrow-left table">
+            <div class="left mirror left-arrow slider-left">
+                <div class="float-box"></div>
+            </div>
 
-
+        </div>
     </div>
-    <div class="absolute mirror left-arrow slider-left"></div>
-    <div class="absolute right-arrow slider-right"></div>
 </div>
 <div class="about page-item">
     <div class="about-header">
@@ -271,7 +307,9 @@
         </div>
     </div>
     <div class="scrool-member">
-        <div id="scroll-contactus-js" class="scrool-img-members"></div>
+        <div class="float-box shadow">
+            <div id="scroll-contactus-js" class="scrool-img-members"></div>
+        </div>
     </div>
 </div>
 <div class="contact page-item">
@@ -290,7 +328,7 @@
         <input type="email" placeholder="ایمیل" class="email right" id="contact-email">
         <input placeholder="عنوان" class="title right" id="contact-title">
         <textarea placeholder="متن" class="text-contact" id="contact-text"></textarea>
-        <button class="send-btn">
+        <button class="send-btn btn float-button-light">
             ارسال
         </button>
 

@@ -109,7 +109,7 @@ $(document).ready(function () {
 
     var flag = false;
 
-    $('.slider-left').click(function () {
+    $('.slider-arrow-right').click(function () {
         if (flag)
             return;
 
@@ -124,7 +124,7 @@ $(document).ready(function () {
     });
     /* on right button click scroll to
      the next sibling of the current visible slide */
-    $('.slider-right').click(function () {
+    $('.slider-arrow-left').click(function () {
         if (flag)
             return;
 
@@ -195,6 +195,17 @@ $(document).ready(function () {
         });
     });
 
+//wave js code
+
+    {
+        Waves.attach('.float-box', ['waves-block', 'waves-float']);
+        Waves.attach('.float-icon-light', ['waves-circle', 'waves-float', 'waves-light']);
+        Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
+        Waves.attach('.waves-image');
+        Waves.attach('.flat-box-img', ['waves-float', 'waves-circle']);
+        Waves.init();
+    }
+
 });
 
 
@@ -221,5 +232,7 @@ $.ajaxSetup({
             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
         }
     }
+
+
 });
 

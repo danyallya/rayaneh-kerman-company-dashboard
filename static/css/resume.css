@@ -581,3 +581,64 @@ h1 {
     border: 1px solid white;
     float: right;
 }
+
+/*Link to bazzar and site*/
+/*section3*/
+#section3 .site
+{
+    width: 200px;
+    height: 60px;
+    /*background-color: red;*/
+    position: absolute;
+    top: 45%;
+    z-index: 2222;
+    background-color: #00BCD4;
+    left: -141px;
+    cursor: pointer;
+        border-radius: 28px;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+}
+#section3 .site:hover
+{
+    left: -30px;
+}
+#section3 .site-text
+{
+    width: 100px;
+    direction: rtl;
+    color: white;
+
+}
+#section3 .android
+{
+    width: 200px;
+    height: 60px;
+    /*background-color: red;*/
+    position: absolute;
+    top: 55%;
+    z-index: 2222;
+    background-color: #00BCD4;
+    left: -141px;
+    cursor: pointer;
+        border-radius: 28px;
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    transition: all ease .3s;
+}
+#section3 .android:hover
+{
+    left: -30px;
+}
+#section3 .android-text
+{
+    width: 100px;
+    direction: rtl;
+    color: white;
+
+}
