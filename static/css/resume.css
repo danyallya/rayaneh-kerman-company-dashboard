@@ -584,61 +584,104 @@ h1 {
 
 /*Link to bazzar and site*/
 /*section3*/
-#section3 .site
-{
+.section .site {
     width: 200px;
-    height: 60px;
-    /*background-color: red;*/
+    height: 63px;
+    /* background-color: red; */
     position: absolute;
     top: 45%;
     z-index: 2222;
-    background-color: #00BCD4;
-    left: -141px;
+    background-color: #2CC185;
+    left: -30px;
+    border: 1px solid white;
     cursor: pointer;
-        border-radius: 28px;
+    border-radius: 28px;
     -webkit-transition: all ease .3s;
     -moz-transition: all ease .3s;
     -ms-transition: all ease .3s;
     -o-transition: all ease .3s;
     transition: all ease .3s;
+
 }
-#section3 .site:hover
+.section .site .site-img
 {
-    left: -30px;
+    margin-top: 2px;
+    background-image: url("../images/web.png");
+    width: 62px;
+    height: 62px;
 }
-#section3 .site-text
+
+.section .site:hover
 {
+    background-color: white;
+
+}
+.section .site:hover .site-text {
+    color: #2CC185;
+
+}
+.section .site:hover .site-img
+{
+    background-position: -60px 0px;
+}
+
+.section .site-text {
     width: 100px;
     direction: rtl;
     color: white;
 
 }
-#section3 .android
-{
-    width: 200px;
-    height: 60px;
-    /*background-color: red;*/
+
+.section .android {
+     width: 200px;
+    height: 63px;
+    /* background-color: red; */
     position: absolute;
     top: 55%;
     z-index: 2222;
-    background-color: #00BCD4;
-    left: -141px;
+    background-color: #2CC185;
+    left: -30px;
+    border: 1px solid white;
     cursor: pointer;
-        border-radius: 28px;
+    border-radius: 28px;
     -webkit-transition: all ease .3s;
     -moz-transition: all ease .3s;
     -ms-transition: all ease .3s;
     -o-transition: all ease .3s;
     transition: all ease .3s;
+
 }
-#section3 .android:hover
+
+.section .android .android-img
 {
-    left: -30px;
+    margin-top: 7px;
+    background-image: url("../images/android.png");
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
-#section3 .android-text
-{
+
+.section .android:hover {
+
+}
+
+.section .android-text {
     width: 100px;
     direction: rtl;
     color: white;
 
+}
+.section .android:hover
+{
+    background-color: white;
+
+}
+.section .android:hover .android-text {
+    color: #2CC185;
+
+}
+.section .android:hover .android-img
+{
+    background-position: -56px 0px;
 }

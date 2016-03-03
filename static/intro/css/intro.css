@@ -204,6 +204,7 @@ header .header-items .active {
     width: 1000px;
     margin-top: 18% !important;
     margin: 0 auto;
+    margin-bottom: 65px;
 }
 
 .slider .slider-arrow-right {
@@ -669,4 +670,36 @@ header .header-items .active {
 
 .shadow {
     box-shadow: none !important;
+}
+.rezoume-btn
+{
+   border: 1px solid white;
+    height: 60px;
+    border-radius: 6px;
+    color: white;
+    width: 300px;
+    cursor: pointer;
+    font-size: 18px;
+    /* margin-top: 49px; */
+    box-sizing: border-box;
+    padding-top: 11px;
+    text-align: center;
+    margin: 0 auto;
+
+}
+.rezoume-btn a
+{
+    color: white;
+    text-decoration: none;
+}
+.rezoume-btn:hover
+{
+    background-color: white;
+    border: none;
+    color: #2CC185;
+}
+
+.rezoume-btn:hover a
+{
+      color: #2CC185;
 }
