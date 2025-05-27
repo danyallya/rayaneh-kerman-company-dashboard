@@ -1,6 +1,3 @@
-```markdown
-# PRK WEBSITE PROJECT
-# Rayaneh Kerman - Company Internal Dashboard
 
 ![PRK Dashboard Screenshot](https://github.com/danyallya/rayaneh-kerman-company-dashboard/blob/master/static/images/user.png?raw=true )
 
@@ -8,6 +5,11 @@
 > Built with HTML, CSS, jQuery, Python & Django
 
 ![Rayaneh Logo](https://github.com/danyallya/rayaneh-kerman-company-dashboard/blob/master/static/images/prk-logo.png?raw=true )
+
+```markdown
+# PRK WEBSITE PROJECT
+# Rayaneh Kerman - Company Internal Dashboard
+
 
 
 An internal dashboard and HR management system for **Rayaneh Computer Company in Kerman**, Iran. Built with **HTML5**, **CSS3**, **jQuery**, and powered by **Python Django**, this platform supports company introduction, candidate testing, task management, and time tracking (effort logging).
